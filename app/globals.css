@@ -40,3 +40,34 @@ a {
     color-scheme: dark;
   }
 }
+
+.info-card {
+  transition: all 0.3s ease;
+  transform-origin: center;
+  position: relative;
+  height: auto;
+}
+
+.info-card:not(:hover) {
+  opacity: 1;
+  transform: scale(0.97);
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.info-card .details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover .details {
+  max-height: 60px;
+  opacity: 1;
+  margin-top: 8px;
+}
