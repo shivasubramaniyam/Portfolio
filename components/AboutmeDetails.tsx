@@ -32,8 +32,8 @@ export default function AboutmeDetails() {
       <Flex
         w="100%"
         display="flex"
-        gap="16px"
-        justifyContent="space-between"
+        gap={{ base: "12px", md: "16px" }}
+        justifyContent={{ base: "center", md: "space-between" }}
         direction={{ base: "column", md: "row" }}
       >
         {" "}
@@ -197,17 +197,17 @@ export default function AboutmeDetails() {
                 <Image src="/images/IMG_72611.JPG" alt="" borderRadius="full" />
               </Box>
               <Box flex={1} color={"#000"}>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="20px">
+                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   {" "}
                   Shiva
                 </Text>
-                <Text fontSize={{ base: "10px", md: "12px" }} lineHeight="24px">
+                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
                   {" "}
                   Personal Details
                 </Text>
                 {/* Hidden details */}
                 <Box className="details">
-                  <Text fontSize={{ base: "10px", sm: "8px", md: "12px" }}>
+                  <Text fontSize={{ base: "10px", md: "12px" }}>
                     mailto:shivasubramaniyam54@gmail.com
                     <br />
                     ph no:797 5271 494
@@ -247,15 +247,15 @@ export default function AboutmeDetails() {
                 <Image src="/images/github.svg" alt="" />
               </Box>
               <Box flex={1} color={"#000"}>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="20px">
+                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   GitHub
                 </Text>
-                <Text fontSize={{ base: "10px", md: "12px" }} lineHeight="24px">
+                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
                   Explore Github{" "}
                 </Text>
                 {/* Hidden details */}
                 <Box className="details">
-                  <Text fontSize={{ base: "10px", sm: "8px", md: "12px" }}>
+                  <Text fontSize={{ base: "10px", md: "12px" }}>
                     {" "}
                     https://github.com/shivasubramaniyam{" "}
                   </Text>
@@ -296,17 +296,17 @@ export default function AboutmeDetails() {
                 <Image src="/images/linkedin.svg" alt="" />
               </Box>
               <Box flex={1} color={"#000"}>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="20px">
+                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   {" "}
                   LinkedIn
                 </Text>
-                <Text fontSize={{ base: "10px", md: "12px" }} lineHeight="24px">
+                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
                   {" "}
                   Explore LinkedIn
                 </Text>
                 {/* Hidden details */}
                 <Box className="details">
-                  <Text fontSize={{ base: "10px", sm: "8px", md: "12px" }}>
+                  <Text fontSize={{ base: "10px", md: "12px" }}>
                     https://www.linkedin.com/in/shiva-subramaniyam-s
                   </Text>
                 </Box>

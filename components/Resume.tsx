@@ -8,6 +8,7 @@ import { useColorModeValue } from "./ui/color-mode";
 
 const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
+
 export default function Resume() {
   const bgGradient = useColorModeValue(
     "linear(to-br, #f8f9fa, #e9ecef)",
@@ -15,17 +16,17 @@ export default function Resume() {
   );
 
   const { ref, inView } = useInView({
-    triggerOnce: false, // Allow repeated triggers on scroll
+    triggerOnce: false,
     threshold: 0.2,
   });
+
   return (
     <section id="Resume">
-      {" "}
       <Flex
         direction="column"
         align="center"
         justify="center"
-        p={{ base: 6, md: 12 }}
+        p={{ base: 4, md: 12 }}
         w="100%"
         minH="100vh"
         bgGradient={bgGradient}
@@ -34,22 +35,23 @@ export default function Resume() {
         borderRadius="12px"
       >
         <MotionHeading
-          as={motion.h4}
-          mb="24px"
+          as="h4"
+          mb={{ base: 12, md: 24 }}
           textAlign="center"
           fontFamily="'GT Walsheim', sans-serif"
           initial={{ opacity: 0, y: -30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.7, ease: easeInOut }}
           fontWeight="bold"
+          fontSize={{ base: "xl", md: "3xl" }}
         >
           Resume
         </MotionHeading>
 
         <Text
-          maxW="700px"
-          mb={8}
-          px={4}
+          maxW={{ base: "90%", md: "700px" }}
+          mb={{ base: 6, md: 8 }}
+          px={{ base: 2, md: 4 }}
           fontSize={{ base: "md", md: "lg" }}
           color={useColorModeValue("gray.700", "gray.300")}
         >
@@ -60,9 +62,9 @@ export default function Resume() {
 
         <MotionBox
           ref={ref}
-          w="100%"
+          w={{ base: "90%", md: "100%" }}
           maxW="900px"
-          h={{ base: "60vh", md: "80vh" }}
+          h={{ base: "50vh", md: "80vh" }}
           borderRadius="2xl"
           overflow="hidden"
           boxShadow="0px 12px 35px rgba(0,0,0,0.18)"

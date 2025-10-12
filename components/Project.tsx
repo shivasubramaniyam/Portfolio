@@ -22,6 +22,7 @@ export default function Projects() {
   const textColor = useColorModeValue("#000", "#fff");
   const projectCard = useColorModeValue("#bccfe8ff", "#2f2f5f");
   const projectCardColor = useColorModeValue("#000", "#fff");
+
   const projects = [
     {
       title: "HEALE Web Page",
@@ -56,16 +57,6 @@ export default function Projects() {
       company: "JyothyIT",
       logo: "/images/jit.png",
     },
-    // {
-    //   title: "Chat DApp1",
-    //   description:
-    //     "A decentralized messaging app with end-to-end encryption and WebRTC-based calling functionality.",
-    //   image: "/images/IMG_72611.JPG",
-    //   tools: ["WebRTC", "GUN.js", "libp2p", "Next.js"],
-    //   link: "https://github.com/yourusername/chat-dapp",
-    //   type: "public",
-    //   company: "trustgrid",
-    // },
   ];
 
   // Variants with exit for fade out
@@ -81,22 +72,25 @@ export default function Projects() {
 
   return (
     <section id="Project">
-      {" "}
       <Box
-        p="24px"
+        p={{ base: "16px", md: "24px" }}
         borderRadius="12px"
         bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
       >
         <Heading
           textAlign="center"
-          mb="24px"
+          mb={{ base: "16px", md: "24px" }}
           fontFamily="'GT Walsheim', sans-serif"
           color={textColor}
+          fontSize={{ base: "xl", md: "2xl" }}
         >
           Projects
         </Heading>
 
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+          gap={{ base: 4, md: 6 }}
+        >
           <AnimatePresence>
             {projects.map((project, index) => (
               <MotionBox
@@ -104,9 +98,7 @@ export default function Projects() {
                 custom={index}
                 variants={fadeInOut}
                 initial="hidden"
-                // Animate in when in view
                 whileInView="visible"
-                // Animate out when out of view
                 exit="exit"
                 viewport={{ once: false, amount: 0.3 }}
                 bg={cardBg}
@@ -115,15 +107,18 @@ export default function Projects() {
                 overflow="hidden"
                 _hover={{ transform: "scale(1.03)", shadow: "xl" }}
               >
-                <VStack align="start" gap={3} p={5}>
+                <VStack
+                  align="start"
+                  gap={{ base: 3, md: 5 }}
+                  p={{ base: 3, md: 5 }}
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
-                    h="180px"
+                    h={{ base: "140px", md: "180px" }}
                     w="100%"
                     objectFit="contain"
                     borderRadius="8px"
-                    // Apply filter only if dark mode AND image matches issuer_logo.svg
                     filter={
                       colorMode === "light" &&
                       project.image === "/images/issuer_logo.svg"
@@ -135,22 +130,27 @@ export default function Projects() {
                     size="md"
                     fontFamily="'GT Walsheim', sans-serif"
                     color={textColor}
+                    fontSize={{ base: "md", md: "lg" }}
                   >
                     {project.title}
                   </Heading>
-                  <Text color={textColor} width="100%" fontSize="sm">
+                  <Text
+                    color={textColor}
+                    width="100%"
+                    fontSize={{ base: "sm", md: "md" }}
+                  >
                     {project.description}
                   </Text>
-                  <HStack wrap="wrap">
+                  <HStack wrap="wrap" gap={{ base: 2, md: 3 }}>
                     {project.tools.map((tool, i) => (
                       <Box
                         className="tag_text"
                         key={i}
-                        fontSize="xs"
+                        fontSize={{ base: "xs", md: "sm" }}
                         bg={projectCard}
                         color={projectCardColor}
-                        px={2}
-                        py={1}
+                        px={{ base: 2, md: 3 }}
+                        py={{ base: 1, md: 1 }}
                         borderRadius="lg"
                       >
                         {tool}
@@ -158,74 +158,87 @@ export default function Projects() {
                     ))}
                   </HStack>
                   {project.type === "private" ? (
-                    <>
-                      <Flex direction="row" gap="12px" justifyContent="center">
-                        <Text
-                          borderRadius="12px"
-                          color="red"
-                          bg="none"
-                          border="1px solid red"
-                          py={2}
-                          px={2}
-                        >
-                          Private{" "}
-                        </Text>
-                        {!!project.logo && (
-                          <Box
-                            borderColor={textColor}
-                            border="1px solid"
-                            display="flex"
-                            borderRadius="8px"
-                            padding="4px"
-                          >
-                            <Image
-                              src={project.logo}
-                              alt="logo"
-                              boxSize="35px"
-                            />
-                          </Box>
-                        )}
-                      </Flex>
-                    </>
-                  ) : (
-                    <>
-                      <Flex direction="row" gap="12px" alignItems="center">
-                        {" "}
-                        <Text
-                          borderRadius="12px"
-                          color="green"
-                          bg="none"
-                          border="1px solid green"
-                          py={2}
-                          px={2}
-                        >
-                          Public
-                        </Text>
-                        <Button
-                          display="flex"
-                          flexDirection="row"
-                          gap="8px"
-                          borderRadius="12px"
-                          color={textColor}
-                          bg="none"
-                          border="1px solid white"
+                    <Flex
+                      direction="row"
+                      gap={{ base: "8px", md: "12px" }}
+                      justifyContent="center"
+                      wrap="wrap"
+                      alignContent="center"
+                    >
+                      <Text
+                        borderRadius="12px"
+                        color="red"
+                        bg="none"
+                        border="1px solid red"
+                        py={2}
+                        px={4}
+                        fontSize={{ base: "sm", md: "md" }}
+                      >
+                        Private
+                      </Text>
+                      {!!project.logo && (
+                        <Box
                           borderColor={textColor}
-                          // py={1}
-                          px={2}
+                          border="1px solid"
+                          display="flex"
+                          borderRadius="12px"
+                          padding="4px"
+                          mt="2px"
+                          boxSize={{ base: "35px", md: "40px" }}
                         >
-                          <Box boxSize="20px" borderRadius="full">
-                            <Image
-                              src="/images/github_white.svg"
-                              alt="github-logo"
-                              boxSize="20px"
-                              borderRadius="full"
-                            />
-                          </Box>
-
-                          <Text>Github Link</Text>
-                        </Button>
-                      </Flex>
-                    </>
+                          <Image
+                            src={project.logo}
+                            alt="logo"
+                            boxSize={{ base: "25px", md: "30px" }}
+                            // borderRadius="full"
+                          />
+                        </Box>
+                      )}
+                    </Flex>
+                  ) : (
+                    <Flex
+                      direction="row"
+                      gap={{ base: 6, md: "12px" }}
+                      alignItems="center"
+                      wrap="wrap"
+                    >
+                      <Text
+                        borderRadius="12px"
+                        color="green"
+                        bg="none"
+                        border="1px solid green"
+                        py={2}
+                        px={4}
+                        fontSize={{ base: "sm", md: "md" }}
+                      >
+                        Public
+                      </Text>
+                      <Button
+                        display="flex"
+                        flexDirection="row"
+                        gap="8px"
+                        borderRadius="12px"
+                        color={textColor}
+                        bg="none"
+                        border="1px solid"
+                        borderColor={textColor}
+                        px={4}
+                        fontSize={{ base: "sm", md: "md" }}
+                      >
+                        <Box
+                          boxSize={{ base: "16px", md: "20px" }}
+                          borderRadius="full"
+                        >
+                          <Image
+                            src="/images/github_white.svg"
+                            alt="github-logo"
+                            boxSize={{ base: "16px", md: "20px" }}
+                            borderRadius="full"
+                          />
+                        </Box>
+                        <Text>Github Link</Text>
+                      </Button>
+                    </Flex>
                   )}
                 </VStack>
               </MotionBox>

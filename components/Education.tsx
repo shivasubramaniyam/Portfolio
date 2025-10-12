@@ -53,25 +53,31 @@ export default function Education() {
 
   return (
     <Box
-      p="24px"
+      p={{ base: "16px", md: "24px" }}
       borderRadius="12px"
       bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
     >
       <Heading
         textAlign="center"
-        mb="24px"
+        mb={{ base: "16px", md: "24px" }}
         fontFamily="'GT Walsheim', sans-serif"
         color={textColor}
+        fontSize={{ base: "xl", md: "2xl" }}
       >
         Education & Certifications
       </Heading>
 
-      <VStack gap={6} align="stretch" maxW="800px" mx="auto">
+      <VStack
+        gap={{ base: 4, md: 6 }}
+        align="stretch"
+        maxW={{ base: "100%", md: "800px" }}
+        mx="auto"
+      >
         {educationData.map((edu, index) => (
           <MotionBox
             key={index}
             bg={boxBg}
-            p={6}
+            p={{ base: 4, md: 6 }}
             borderRadius="2xl"
             shadow="md"
             custom={index}
@@ -84,9 +90,13 @@ export default function Education() {
               transition: "0.3s ease-in-out",
             }}
           >
-            <HStack justify="space-between" align="center" mb={2}>
+            <HStack
+              justify="space-between"
+              align="center"
+              mb={{ base: 1, md: 2 }}
+            >
               <Text
-                fontSize="lg"
+                fontSize={{ base: "md", md: "lg" }}
                 fontWeight="bold"
                 color={textColor}
                 fontFamily="'GT Walsheim', sans-serif"
@@ -94,21 +104,29 @@ export default function Education() {
                 {edu.title}
               </Text>
               <Tag.Root
-                className="tag_text"
                 bg={tagBg}
                 color={tag1}
                 borderRadius="full"
                 px={4}
+                fontSize={{ base: "xs", md: "sm" }}
               >
                 {edu.status}
               </Tag.Root>
             </HStack>
 
-            <Text color={textColor} opacity={0.8}>
+            <Text
+              color={textColor}
+              opacity={0.8}
+              fontSize={{ base: "sm", md: "md" }}
+            >
               {edu.college}
             </Text>
-            <Box divideX={"2px"} my={3} borderColor={tag2} />
-            <Text fontSize="sm" color={tag3}>
+            <Box
+              borderBottomWidth="2px"
+              my={{ base: 2, md: 3 }}
+              borderColor={tag2}
+            />
+            <Text fontSize={{ base: "xs", md: "sm" }} color={tag3}>
               Year: {edu.year}
             </Text>
           </MotionBox>

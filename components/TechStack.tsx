@@ -37,29 +37,29 @@ export default function Skills() {
 
   return (
     <section id="Skills">
-      {" "}
       <Box
-        p="24px"
+        p={{ base: "16px", md: "24px" }}
         borderRadius="12px"
         bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
       >
         <Heading
           textAlign="center"
-          mb="24px"
+          mb={{ base: "16px", md: "24px" }}
           fontFamily="'GT Walsheim', sans-serif"
           color={textColor}
+          fontSize={{ base: "xl", md: "2xl" }}
         >
           Skills & Tech Stack
         </Heading>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 4, md: 6 }}>
           {Object.entries(skills).map(([category, items], index) => (
             <MotionVStack
               key={category}
               align="start"
-              gap={4}
+              gap={{ base: 3, md: 4 }}
               bg={gridcolor}
-              p={6}
+              p={{ base: 4, md: 6 }}
               borderRadius="12px"
               shadow="md"
               custom={index}
@@ -70,13 +70,13 @@ export default function Skills() {
             >
               <Text
                 fontWeight="bold"
-                fontSize="lg"
+                fontSize={{ base: "md", md: "lg" }}
                 color={textColor}
                 fontFamily="'GT Walsheim', sans-serif"
               >
                 {category}
               </Text>
-              <Box display="flex" flexWrap="wrap" gap={2}>
+              <Box display="flex" flexWrap="wrap" gap={{ base: 1, md: 2 }}>
                 {items.map((skill) => (
                   <Tag.Root
                     key={skill}
@@ -85,8 +85,9 @@ export default function Skills() {
                     color={textColor}
                     size="lg"
                     borderRadius="24px"
-                    px={4}
-                    py={1}
+                    px={{ base: 3, md: 4 }}
+                    py={{ base: 1, md: 1 }}
+                    fontSize={{ base: "xs", md: "sm" }}
                   >
                     {skill}
                   </Tag.Root>
