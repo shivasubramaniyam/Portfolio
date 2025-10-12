@@ -10,7 +10,15 @@ export function BackToTopButton() {
   const { colorMode } = useColorMode();
 
   // Responsive size and position based on breakpoints
-  const buttonSize = useBreakpointValue({ base: "sm", md: "xs" });
+  const buttonSize = useBreakpointValue({ base: "sm", md: "xs" }) as
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "2xs"
+    | "xs"
+    | undefined;
   const rightPosition = useBreakpointValue({ base: "10px", md: "50%" });
   const transformX = useBreakpointValue({
     base: "none",

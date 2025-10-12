@@ -1,27 +1,6 @@
 "use client";
 import { Box, Text, Flex, Image, Tag } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
-import { motion, Variants } from "framer-motion";
-import { useInView } from "react-intersection-observer"; // optional, if needed
-
-const MotionFlex = motion(Flex);
-
-const slideInVariants: Variants = {
-  hidden: (direction: number) => ({
-    opacity: 0,
-    x: direction % 2 === 0 ? -100 : 100, // even index slide from left, odd from right
-  }),
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 20,
-      delay: 0.2,
-    },
-  },
-};
 
 export default function AboutmeDetails() {
   const detailBackground = useColorModeValue("#a9a9b346", "#1a1a2e");
@@ -74,7 +53,6 @@ export default function AboutmeDetails() {
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
-                // color={"#000"}
                 mb="8px"
                 textAlign={{ base: "center", md: "left" }}
               >
@@ -83,7 +61,6 @@ export default function AboutmeDetails() {
 
               <Text
                 fontSize="md"
-                // color={"#000"}
                 lineHeight="1.7"
                 textAlign={{ base: "center", md: "left" }}
                 mb="16px"
@@ -106,7 +83,6 @@ export default function AboutmeDetails() {
                 <Tag.Root
                   bg={tagBg}
                   className="tag_text"
-                  // color={"#000"}
                   borderRadius="full"
                   px="12px"
                   py="6px"
@@ -115,7 +91,6 @@ export default function AboutmeDetails() {
                 </Tag.Root>
                 <Tag.Root
                   bg={tagBg}
-                  // color={"#000"}
                   className="tag_text"
                   borderRadius="full"
                   px="12px"
@@ -125,7 +100,6 @@ export default function AboutmeDetails() {
                 </Tag.Root>
                 <Tag.Root
                   bg={tagBg}
-                  // color={"#000"}
                   className="tag_text"
                   borderRadius="full"
                   px="12px"
@@ -152,24 +126,6 @@ export default function AboutmeDetails() {
             <Text flex={1} fontWeight="bold" textAlign={"left"} ml="15px">
               Details
             </Text>
-            {/* 
-            <Link
-              href="#"
-              onClick={handleOpenAllLinks}
-              fontSize="14px"
-              fontWeight="500"
-              style={{
-                background:
-                  "linear-gradient(313.48deg, #3446EE 16.08%, #6C6EF5 60.58%, #9695F9 93.77%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-              px="16px"
-              py="4px"
-              cursor="pointer"
-            >
-              View all
-            </Link> */}
           </Flex>
           <Box>
             <Flex

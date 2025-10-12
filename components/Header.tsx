@@ -26,13 +26,20 @@ export default function Header() {
           <Heading>
             <Flex as="nav" gap={{ base: 3, md: 5 }}>
               {/* Each link wrapped with ChakraLink for styling and NextLink for routing */}
-              <ChakraLink as={NextLink} href="#" fontSize={responsiveFontSize}>
+              <ChakraLink
+                as={NextLink}
+                href="#"
+                _hover={{ border: "none" }}
+                fontSize={responsiveFontSize}
+                className="heading"
+              >
                 Home
               </ChakraLink>
               <ChakraLink
                 as={NextLink}
                 href="#Skills"
                 fontSize={responsiveFontSize}
+                className="heading"
               >
                 Skills
               </ChakraLink>
@@ -40,13 +47,23 @@ export default function Header() {
                 as={NextLink}
                 href="#Project"
                 fontSize={responsiveFontSize}
+                className="heading"
               >
                 Project
               </ChakraLink>
               <ChakraLink
                 as={NextLink}
+                href="#edu"
+                fontSize={responsiveFontSize}
+                className="heading"
+              >
+                Education
+              </ChakraLink>
+              <ChakraLink
+                as={NextLink}
                 href="#Resume"
                 fontSize={responsiveFontSize}
+                className="heading"
               >
                 Resume
               </ChakraLink>
@@ -54,6 +71,7 @@ export default function Header() {
                 as={NextLink}
                 href="#Cover_Letter"
                 fontSize={responsiveFontSize}
+                className="heading"
               >
                 Cover Letter
               </ChakraLink>

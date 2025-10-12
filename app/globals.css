@@ -90,3 +90,14 @@ a {
   opacity: 1;
   transform: scale(0.97);
 }
+.heading {
+  transition: all 0.3s ease;
+  transform-origin: center;
+  position: relative;
+  height: auto;
+}
+.heading:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}

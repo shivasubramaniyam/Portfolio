@@ -51,9 +51,9 @@ export default function Home() {
       >
         <Header />
         <AboutmeDetails />
-        <Education />
         <TechStack />
         <Projects />
+        <Education />
         <Resume />
         <CoverLetter />
         <BackToTopButton />
