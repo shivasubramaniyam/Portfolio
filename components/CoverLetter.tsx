@@ -8,7 +8,7 @@ import { useColorModeValue } from "./ui/color-mode";
 import { section } from "motion/react-client";
 
 const MotionBox = motion(Box);
-
+const MotionHeading = motion(Heading);
 export default function CoverLetter() {
   const bgGradient = useColorModeValue(
     "linear(to-br, #f8f9fa, #e9ecef)",
@@ -34,7 +34,7 @@ export default function CoverLetter() {
         bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
         borderRadius="12px"
       >
-        <Heading
+        <MotionHeading
           as={motion.h4}
           mb="24px"
           textAlign="center"
@@ -45,7 +45,7 @@ export default function CoverLetter() {
           fontWeight="bold"
         >
           Cover Letter
-        </Heading>
+        </MotionHeading>
 
         {/* <Text
         maxW="700px"

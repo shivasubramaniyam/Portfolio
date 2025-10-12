@@ -7,7 +7,7 @@ import * as React from "react";
 import { useColorModeValue } from "./ui/color-mode";
 
 const MotionBox = motion(Box);
-
+const MotionHeading = motion(Heading);
 export default function Resume() {
   const bgGradient = useColorModeValue(
     "linear(to-br, #f8f9fa, #e9ecef)",
@@ -33,7 +33,7 @@ export default function Resume() {
         bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
         borderRadius="12px"
       >
-        <Heading
+        <MotionHeading
           as={motion.h4}
           mb="24px"
           textAlign="center"
@@ -44,7 +44,7 @@ export default function Resume() {
           fontWeight="bold"
         >
           Resume
-        </Heading>
+        </MotionHeading>
 
         <Text
           maxW="700px"
