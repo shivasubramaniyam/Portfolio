@@ -7,7 +7,7 @@ import { useColorModeValue } from "@/components/ui/color-mode";
 export default function Education() {
   const textColor = useColorModeValue("#000", "#fff");
   const boxBg = useColorModeValue("#f8f9fa", "#1a1a2e");
-  const tagBg = useColorModeValue("#e3ea50df", "#2f2f5f");
+  const tagBg = useColorModeValue("#bccfe8ff", "#2f2f5f");
   const tag1 = useColorModeValue("#000", "#fff");
   const tag2 = useColorModeValue("#ccc", "#333");
   const tag3 = useColorModeValue("#555", "#aaa");
@@ -20,9 +20,9 @@ export default function Education() {
       status: "Completed",
     },
     {
-      title: "PMP Basics",
-      college: "Online Course",
-      year: "2024",
+      title: "Cloud Essentials",
+      college: "IBM (Credly)",
+      year: "2025",
       status: "Completed",
     },
     {
@@ -30,6 +30,12 @@ export default function Education() {
       college: "Online Course",
       year: "2024",
       status: "In Progress",
+    },
+    {
+      title: "React JS",
+      college: "Infosys Springboard",
+      year: "2023",
+      status: "Completed",
     },
   ];
 

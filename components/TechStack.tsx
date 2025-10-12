@@ -6,7 +6,7 @@ import { useColorModeValue } from "@/components/ui/color-mode";
 
 export default function Skills() {
   const textColor = useColorModeValue("#000", "#fff");
-  const tagBg = useColorModeValue("#e3ea50df", "#2f2f5f");
+  const tagBg = useColorModeValue("#bccfe8ff", "#2f2f5f");
   const gridcolor = useColorModeValue("#fff", "#1a1a2e");
 
   const skills = {
@@ -36,63 +36,66 @@ export default function Skills() {
   };
 
   return (
-    <Box
-      p="24px"
-      borderRadius="12px"
-      bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
-    >
-      <Heading
-        textAlign="center"
-        mb="24px"
-        fontFamily="'GT Walsheim', sans-serif"
-        color={textColor}
+    <section id="Skills">
+      {" "}
+      <Box
+        p="24px"
+        borderRadius="12px"
+        bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
       >
-        Skills & Tech Stack
-      </Heading>
+        <Heading
+          textAlign="center"
+          mb="24px"
+          fontFamily="'GT Walsheim', sans-serif"
+          color={textColor}
+        >
+          Skills & Tech Stack
+        </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
-        {Object.entries(skills).map(([category, items], index) => (
-          <MotionVStack
-            key={category}
-            align="start"
-            gap={4}
-            bg={gridcolor}
-            p={6}
-            borderRadius="12px"
-            shadow="md"
-            custom={index}
-            variants={slideInVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-          >
-            <Text
-              fontWeight="bold"
-              fontSize="lg"
-              color={textColor}
-              fontFamily="'GT Walsheim', sans-serif"
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+          {Object.entries(skills).map(([category, items], index) => (
+            <MotionVStack
+              key={category}
+              align="start"
+              gap={4}
+              bg={gridcolor}
+              p={6}
+              borderRadius="12px"
+              shadow="md"
+              custom={index}
+              variants={slideInVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
             >
-              {category}
-            </Text>
-            <Box display="flex" flexWrap="wrap" gap={2}>
-              {items.map((skill) => (
-                <Tag.Root
-                  key={skill}
-                  className="tag_text"
-                  bg={tagBg}
-                  color={textColor}
-                  size="lg"
-                  borderRadius="24px"
-                  px={4}
-                  py={1}
-                >
-                  {skill}
-                </Tag.Root>
-              ))}
-            </Box>
-          </MotionVStack>
-        ))}
-      </SimpleGrid>
-    </Box>
+              <Text
+                fontWeight="bold"
+                fontSize="lg"
+                color={textColor}
+                fontFamily="'GT Walsheim', sans-serif"
+              >
+                {category}
+              </Text>
+              <Box display="flex" flexWrap="wrap" gap={2}>
+                {items.map((skill) => (
+                  <Tag.Root
+                    key={skill}
+                    className="tag_text"
+                    bg={tagBg}
+                    color={textColor}
+                    size="lg"
+                    borderRadius="24px"
+                    px={4}
+                    py={1}
+                  >
+                    {skill}
+                  </Tag.Root>
+                ))}
+              </Box>
+            </MotionVStack>
+          ))}
+        </SimpleGrid>
+      </Box>
+    </section>
   );
 }
