@@ -47,6 +47,17 @@ export default function Projects() {
       logo: "/images/tgrid_logo.svg",
     },
     {
+      title: "Synq Social ",
+      description:
+        "SynQ is a decentralized social network that gives you full control of your online existence. Allowing you to share your life’s moments freely while ensuring privacy and control over your digital narrative.",
+      image: "/images/synq.svg",
+      tools: ["Puppeteer"],
+      link: "",
+      type: "private",
+      company: "trustgrid",
+      logo: "/images/tgrid_logo.svg",
+    },
+    {
       title: "Blind Assistance",
       description:
         "An AI-powered assistive device using Raspberry Pi that provides real-time object recognition, obstacle detection, and audio feedback to enhance mobility and independence for visually impaired individuals. ",
