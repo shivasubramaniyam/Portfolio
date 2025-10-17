@@ -13,6 +13,7 @@ import AboutmeDetails from "@/components/AboutmeDetails";
 import Resume from "@/components/Resume";
 import CoverLetter from "@/components/CoverLetter";
 import { BackToTopButton } from "@/components/BackToTop";
+
 export default function Home() {
   const [mounted, setMounted] = useState(false);
 

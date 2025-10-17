@@ -10,7 +10,7 @@ export function BackToTopButton() {
   const { colorMode } = useColorMode();
 
   // Responsive size and position based on breakpoints
-  const buttonSize = useBreakpointValue({ base: "sm", md: "xs" }) as
+  const buttonSize = useBreakpointValue({ base: "md", md: "lg" }) as
     | "sm"
     | "md"
     | "lg"
@@ -19,7 +19,7 @@ export function BackToTopButton() {
     | "2xs"
     | "xs"
     | undefined;
-  const rightPosition = useBreakpointValue({ base: "10px", md: "50%" });
+  // const rightPosition = useBreakpointValue({ base: "50px", md: "50%" });
   const transformX = useBreakpointValue({
     base: "none",
     md: "translateX(50%)",
@@ -46,8 +46,8 @@ export function BackToTopButton() {
     <Button
       aria-label="Back to top"
       position="fixed"
-      bottom="10px"
-      right={rightPosition}
+      bottom="30px"
+      right="50%"
       transform={transformX}
       size={buttonSize}
       bg={bgColor}
@@ -60,9 +60,9 @@ export function BackToTopButton() {
       <Image
         src="/images/uparrow.svg"
         alt="Up arrow"
-        boxSize={{ base: "20px", md: "25px" }}
+        boxSize={{ base: "30px", md: "35px" }}
         filter={
-          colorMode === "light"
+          colorMode === "dark"
             ? "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
             : undefined
         }

@@ -25,10 +25,10 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "HEALE Web Page",
+      title: "Logistic Company Web Page",
       description:
-        "HEALE, A logistic company Streamline your data with a single, intuitive API. Embrace smart tech for a more reliable, profitable, and efficient shipment.",
-      image: "/images/heale_logo.svg",
+        " A logistic company Streamline your data with a single, intuitive API. Embrace smart tech for a more reliable, profitable, and efficient shipment.",
+      image: "/images/logistic.svg",
       tools: ["Next.js", "Chakra UI"],
       link: "https://github.com/yourusername/weather-app",
       type: "private",
@@ -65,6 +65,23 @@ export default function Projects() {
       tools: ["RaspberryPI", "RasPiOS", "CNN", "Audio Module"],
       link: "https://github.com/yourusername/chat-dapp",
       type: "private",
+      company: "JyothyIT",
+      logo: "/images/jit.png",
+    },
+    {
+      title: "Portfolio",
+      description:
+        " portfolio is a well-structured and modern web application built using React with Next.js framework and Chakra UI for styling. It showcases your skills, projects, education, and other professional details. ",
+      image: "/images/globe.svg",
+      tools: [
+        "NextJS",
+        "ChakraUI",
+        "Motion Framer",
+        "API integration",
+        "MongoDB",
+      ],
+      link: "https://github.com/shivasubramaniyam/Portfolio",
+      type: "public",
       company: "JyothyIT",
       logo: "/images/jit.png",
     },
@@ -235,6 +252,7 @@ export default function Projects() {
                         borderColor={textColor}
                         px={4}
                         fontSize={{ base: "sm", md: "md" }}
+                        onClick={() => window.open(project.link, "_blank")}
                       >
                         <Box
                           boxSize={{ base: "16px", md: "20px" }}

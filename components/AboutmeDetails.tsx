@@ -5,7 +5,7 @@ import { useColorModeValue } from "./ui/color-mode";
 export default function AboutmeDetails() {
   const detailBackground = useColorModeValue("#a9a9b346", "#1a1a2e");
   const tagBg = useColorModeValue("#bccfe8ff", "#2d2d44");
-
+  const textColor = useColorModeValue("#000", "#fff");
   return (
     <>
       <Flex
@@ -132,7 +132,7 @@ export default function AboutmeDetails() {
               className="info-card"
               align="center"
               width="100%"
-              bgColor={"#90EE90"}
+              bgColor={useColorModeValue("#5A63D8", "#6B7CFA")}
               h={"100px"}
               borderRadius={"24px"}
               border={"1px solid rgba(255, 255, 255, 0.20)"}
@@ -152,7 +152,7 @@ export default function AboutmeDetails() {
               >
                 <Image src="/images/IMG_72611.JPG" alt="" borderRadius="full" />
               </Box>
-              <Box flex={1} color={"#000"}>
+              <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   {" "}
                   Shiva
@@ -175,7 +175,7 @@ export default function AboutmeDetails() {
               className="info-card"
               width="100%"
               align="center"
-              bgColor="#e2ea50ff"
+              bgColor={useColorModeValue("#A2B0FF", "#3F46A1")}
               h="100px"
               borderRadius="24px"
               border="1px solid rgba(255, 255, 255, 0.20)"
@@ -202,7 +202,7 @@ export default function AboutmeDetails() {
               >
                 <Image src="/images/github.svg" alt="" />
               </Box>
-              <Box flex={1} color={"#000"}>
+              <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   GitHub
                 </Text>
@@ -223,7 +223,7 @@ export default function AboutmeDetails() {
               align="center"
               width="100%"
               mt="8px"
-              bgColor={"#A2B0FF"}
+              bgColor={useColorModeValue("#fff", "	#0F123D")}
               h={"100px"}
               borderRadius={"24px"}
               border={"1px solid rgba(255, 255, 255, 0.20)"}
@@ -251,7 +251,7 @@ export default function AboutmeDetails() {
               >
                 <Image src="/images/linkedin.svg" alt="" />
               </Box>
-              <Box flex={1} color={"#000"}>
+              <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
                   {" "}
                   LinkedIn
