@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
-MONGODB_URI =
-  "mongodb+srv://shiva_2003:password@shivas-cluster.yqtctby.mongodb.net/?retryWrites=true&w=majority&appName=shivas-cluster";
 
-const uri = process.env.MONGO_URI || MONGODB_URI;
+const uri = process.env.MONGO_URI;
 
 if (!uri) {
   throw new Error(
