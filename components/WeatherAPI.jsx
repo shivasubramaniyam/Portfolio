@@ -1,4 +1,3 @@
-// ca04174d9240464f90cf6a19ca61e59f;
 "use client";
 import { useEffect, useState } from "react";
 import {
@@ -55,7 +54,6 @@ export default function WeatherAPI() {
       </Flex>
     );
 
-  //   const icon = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
   const condition = weather.weather[0].main.toLowerCase();
   let animation = sunny;
 
@@ -64,15 +62,7 @@ export default function WeatherAPI() {
   else if (condition.includes("storm") || condition.includes("thunder"))
     animation = storm;
   return (
-    <Box
-      //   bg="gray.700"
-      p={2}
-      borderRadius="12px"
-      //   boxShadow="xl"
-      maxW="sm"
-      mx="auto"
-      //   _hover={{ transform: "scale(1.03)", transition: "0.3s" }}
-    >
+    <Box p={2} borderRadius="12px" className="heading" maxW="sm" mx="auto">
       <Flex
         justify="space-between"
         align="center"
@@ -80,13 +70,7 @@ export default function WeatherAPI() {
         flexDir="row"
         gap="8px"
       >
-        <Box
-          w="50px"
-          h="5S0px"
-          background={"#7773732d"}
-          borderRadius={"full"}
-          //   zIndex={2}
-        >
+        <Box w="50px" h="5S0px" background={"#7773732d"} borderRadius={"full"}>
           <Lottie animationData={animation} loop autoplay />
         </Box>
         <Box>
@@ -101,4 +85,3 @@ export default function WeatherAPI() {
     </Box>
   );
 }
-// mongodb+srv://shiva_2003:<db_password>@shivas-cluster.yqtctby.mongodb.net/?retryWrites=true&w=majority&appName=shivas-cluster
