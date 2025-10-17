@@ -27,7 +27,7 @@ export default function WeatherAPI() {
     const fetchWeather = async () => {
       try {
         const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ca04174d9240464f90cf6a19ca61e59f&units=metric`
         );
 
         const data = await res.json();

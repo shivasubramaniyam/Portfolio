@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGO_URI;
+const uri = `mongodb+srv://shiva_2003:nP5of3wJgAfG5WR3@shivas-cluster.yqtctby.mongodb.net/?retryWrites=true&w=majority&appName=shivas-cluster`;
 
 if (!uri) {
   throw new Error(
