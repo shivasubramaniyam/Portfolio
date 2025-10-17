@@ -45,10 +45,10 @@ export default function Header() {
   return (
     <>
       <section id="Home">
-        <Box display="flex" flexDir="row" gap="16px">
+        <Box display="flex" flexDir={{ base: "column", md: "row" }} gap="16px">
           {" "}
           <Box
-            width="65%"
+            width={{ base: "100", md: "65%" }}
             bg={detailBackground}
             display="flex"
             flexDir="row"
@@ -136,7 +136,7 @@ export default function Header() {
             </Heading>
           </Box>{" "}
           <Box
-            width="35%"
+            width={{ base: "100", md: "35%" }}
             bg={detailBackground}
             display="flex"
             alignItems="center"

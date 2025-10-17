@@ -226,7 +226,7 @@ export default function Projects() {
                   ) : (
                     <Flex
                       direction="row"
-                      gap={{ base: 6, md: "12px" }}
+                      gap={{ base: "8px", md: "12px" }}
                       alignItems="center"
                       wrap="wrap"
                     >
