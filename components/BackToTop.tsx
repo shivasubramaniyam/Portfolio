@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { Button, Image, useBreakpointValue } from "@chakra-ui/react";
 import { useColorModeValue, useColorMode } from "@/components/ui/color-mode";

@@ -1,4 +1,3 @@
-"use client";
 import { Box, Text, Flex, Image, Tag } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 

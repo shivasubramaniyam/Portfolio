@@ -5,7 +5,7 @@ import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react";
 import { ThemeProvider, useTheme } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import * as React from "react";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { LuMoon, LuSun, LuMonitor } from "react-icons/lu";
 
 export type ColorModeProviderProps = ThemeProviderProps;
 
@@ -13,15 +13,15 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
     <ThemeProvider
       attribute="class"
-      disableTransitionOnChange
       defaultTheme="system"
       enableSystem
+      disableTransitionOnChange
       {...props}
     />
   );
 }
 
-export type ColorMode = "light" | "dark";
+export type ColorMode = "light" | "dark" | "system";
 
 export interface UseColorModeReturn {
   colorMode: ColorMode;
@@ -30,11 +30,15 @@ export interface UseColorModeReturn {
 }
 
 export function useColorMode(): UseColorModeReturn {
-  const { resolvedTheme, setTheme, forcedTheme } = useTheme();
-  const colorMode = (forcedTheme || resolvedTheme || "light") as ColorMode;
+  const { theme, setTheme } = useTheme();
+
+  // The current mode you *set*, not the resolved one
+  const colorMode = (theme ?? "system") as ColorMode;
 
   const toggleColorMode = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    if (colorMode === "light") setTheme("dark");
+    else if (colorMode === "dark") setTheme("system");
+    else setTheme("light");
   };
 
   return {
@@ -46,14 +50,14 @@ export function useColorMode(): UseColorModeReturn {
 
 export function useColorModeValue<T>(light: T, dark: T) {
   const { resolvedTheme } = useTheme();
-  // Provide fallback to light mode if theme is not yet resolved
   const theme = resolvedTheme || "light";
   return theme === "dark" ? dark : light;
 }
 
 export function ColorModeIcon() {
-  const { resolvedTheme } = useTheme();
-  return resolvedTheme === "dark" ? <LuMoon /> : <LuSun />;
+  const { colorMode } = useColorMode();
+  if (colorMode === "system") return <LuMonitor />;
+  return colorMode === "dark" ? <LuMoon /> : <LuSun />;
 }
 
 type ColorModeButtonProps = Omit<IconButtonProps, "aria-label">;
@@ -72,14 +76,8 @@ export const ColorModeButton = React.forwardRef<
         size="sm"
         ref={ref}
         {...props}
-        css={{
-          _icon: {
-            width: "5",
-            height: "5",
-          },
-        }}
       >
-        <ColorModeIcon />
+        <ColorModeIcon /> {/* ✅ pass icon as child */}
       </IconButton>
     </ClientOnly>
   );

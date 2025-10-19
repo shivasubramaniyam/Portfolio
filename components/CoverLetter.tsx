@@ -6,8 +6,8 @@ import { useInView } from "react-intersection-observer";
 import * as React from "react";
 import { useColorModeValue } from "./ui/color-mode";
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
+const MotionBox = motion.create(Box);
+const MotionHeading = motion.create(Heading);
 
 export default function CoverLetter() {
   const bgGradient = useColorModeValue(

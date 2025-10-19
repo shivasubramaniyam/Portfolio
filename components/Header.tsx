@@ -7,7 +7,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { useColorModeValue } from "./ui/color-mode";
+import { useColorModeValue, ColorModeButton } from "./ui/color-mode";
 import React, { useEffect, useState, useRef } from "react";
 import WeatherAPI from "@/components/WeatherAPI";
 
@@ -133,7 +133,11 @@ export default function Header() {
                   Visitors: {visitorCount}
                 </ChakraLink>{" "}
               </Flex>
-            </Heading>
+            </Heading>{" "}
+            <Box className="theme_button">
+              {" "}
+              <ColorModeButton />
+            </Box>
           </Box>{" "}
           <Box
             width={{ base: "100", md: "35%" }}

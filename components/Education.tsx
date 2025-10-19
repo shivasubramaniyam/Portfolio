@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Heading, Text, VStack, HStack, Tag } from "@chakra-ui/react";
 import { motion, easeOut } from "framer-motion";
 import { useColorModeValue } from "@/components/ui/color-mode";
@@ -39,7 +37,7 @@ export default function Education() {
     },
   ];
 
-  const MotionBox = motion(Box);
+  const MotionBox = motion.create(Box);
 
   // Motion variants for fade and slide from bottom
   const fadeInUp = {

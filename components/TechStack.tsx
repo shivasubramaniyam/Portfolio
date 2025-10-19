@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Heading, Text, SimpleGrid, Tag, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useColorModeValue } from "@/components/ui/color-mode";
@@ -16,7 +14,7 @@ export default function Skills() {
     Tools: ["Git", "VS Code", "Figma", "Postman", "Puppeteer"],
   };
 
-  const MotionVStack = motion(VStack);
+  const MotionVStack = motion.create(VStack);
 
   // Variants for slide-in from left or right depending on index
   const slideInVariants = {

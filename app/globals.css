@@ -3,11 +3,9 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 html,
@@ -107,4 +105,22 @@ a {
   border: none;
   border-color: none;
   outline: none;
+}
+
+.theme_button {
+  width: 32px; /* Set an initial size */
+  height: 32px;
+  border-radius: 50%; /* Circular shape */
+  background-color: transparent;
+  transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+  display: inline-flex; /* Center contents if needed */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.theme_button:hover {
+  width: 40px; /* Slightly larger on hover */
+  height: 40px;
+  /* background-color: grey; */
 }

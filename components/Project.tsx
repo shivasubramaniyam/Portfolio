@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Box,
   Heading,
@@ -17,7 +15,7 @@ import { useColorModeValue } from "@/components/ui/color-mode";
 
 export default function Projects() {
   const { colorMode } = useColorMode();
-  const MotionBox = motion(Box);
+  const MotionBox = motion.create(Box);
   const cardBg = useColorModeValue("#f8f9fa", "#1a1a2e");
   const textColor = useColorModeValue("#000", "#fff");
   const projectCard = useColorModeValue("#bccfe8ff", "#2f2f5f");
