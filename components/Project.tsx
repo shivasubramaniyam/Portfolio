@@ -157,7 +157,7 @@ export default function Projects() {
                             ? "brightness(0) saturate(100%)"
                             : undefined,
                       }}
-                      placeholder="blur"
+                      // placeholder="blur"
                       blurDataURL="https://via.placeholder.com/10x10"
                     />
                   </Box>
@@ -288,7 +288,7 @@ export default function Projects() {
                               objectFit: "contain",
                               borderRadius: "50%", // same as borderRadius="full"
                             }}
-                            placeholder="blur"
+                            // placeholder="blur"
                             blurDataURL="https://via.placeholder.com/10x10"
                           />
                         </Box>

@@ -218,7 +218,7 @@ export default function AboutmeDetails() {
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
-                  placeholder="blur"
+                  // placeholder="blur"
                   blurDataURL="https://via.placeholder.com/10x10"
                 />
               </Box>
@@ -275,7 +275,7 @@ export default function AboutmeDetails() {
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
-                  placeholder="blur"
+                  // placeholder="blur"
                   blurDataURL="https://via.placeholder.com/10x10"
                 />
               </Box>

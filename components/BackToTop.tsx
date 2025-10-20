@@ -71,7 +71,7 @@ export function BackToTopButton() {
                 ? "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
                 : undefined,
           }}
-          placeholder="blur"
+          // placeholder="blur"
           blurDataURL="https://via.placeholder.com/10x10"
         />
       </Box>
