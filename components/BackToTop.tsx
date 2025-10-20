@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Button, Image, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Button,
+  Image,
+  useBreakpointValue,
+  ButtonProps,
+} from "@chakra-ui/react";
 import { useColorModeValue, useColorMode } from "@/components/ui/color-mode";
 
 export function BackToTopButton() {
@@ -11,42 +16,28 @@ export function BackToTopButton() {
   const color = useColorModeValue("white", "gray.800");
   const { colorMode } = useColorMode();
 
-  // Responsive size and position based on breakpoints
-  const buttonSize = useBreakpointValue({ base: "md", md: "lg" }) as
-    | "sm"
-    | "md"
-    | "lg"
-    | "xl"
-    | "2xl"
-    | "2xs"
-    | "xs"
-    | undefined;
-  // const rightPosition = useBreakpointValue({ base: "50px", md: "50%" });
+  const buttonSize = useBreakpointValue({
+    base: "md",
+    md: "lg",
+  }) as ButtonProps["size"];
+
   const transformX = useBreakpointValue({
     base: "none",
     md: "translateX(50%)",
   });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > 200);
-    };
+    const handleScroll = () => setVisible(window.scrollY > 200);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   if (!visible) return null;
 
   return (
     <Button
-      aria-label="Back to top"
       position="fixed"
       bottom="30px"
       right="50%"
