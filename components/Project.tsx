@@ -2,13 +2,13 @@ import {
   Box,
   Heading,
   Text,
-  Image,
   SimpleGrid,
   Button,
   VStack,
   HStack,
   Flex,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { useColorMode } from "@/components/ui/color-mode";
 import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 import { useColorModeValue } from "@/components/ui/color-mode";
@@ -138,20 +138,30 @@ export default function Projects() {
                   gap={{ base: 3, md: 5 }}
                   p={{ base: 3, md: 5 }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    h={{ base: "140px", md: "180px" }}
-                    w="100%"
-                    objectFit="contain"
-                    borderRadius="8px"
-                    filter={
-                      colorMode === "light" &&
-                      project.image === "/images/issuer_logo.svg"
-                        ? "brightness(0) saturate(100%)"
-                        : undefined
-                    }
-                  />
+                  <Box
+                    position="relative"
+                    width="100%"
+                    height={{ base: "140px", md: "180px" }}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      loading="lazy"
+                      style={{
+                        objectFit: "contain",
+                        borderRadius: "8px",
+                        filter:
+                          colorMode === "light" &&
+                          project.image === "/images/issuer_logo.svg"
+                            ? "brightness(0) saturate(100%)"
+                            : undefined,
+                      }}
+                      placeholder="blur"
+                      blurDataURL="https://via.placeholder.com/10x10"
+                    />
+                  </Box>
+
                   <Heading
                     size="md"
                     fontFamily="'GT Walsheim', sans-serif"
@@ -211,13 +221,25 @@ export default function Projects() {
                           padding="4px"
                           mt="2px"
                           boxSize={{ base: "35px", md: "40px" }}
+                          justifyContent="center"
+                          alignItems="center"
                         >
-                          <Image
-                            src={project.logo}
-                            alt="logo"
+                          <Box
+                            position="relative"
                             boxSize={{ base: "25px", md: "30px" }}
-                            // borderRadius="full"
-                          />
+                          >
+                            <Image
+                              src={project.logo}
+                              alt="logo"
+                              fill
+                              style={{
+                                objectFit: "contain",
+                                borderRadius: "50%", // optional, same as Chakra's borderRadius="full"
+                              }}
+                              placeholder="blur"
+                              blurDataURL="https://via.placeholder.com/10x10"
+                            />
+                          </Box>
                         </Box>
                       )}
                     </Flex>
@@ -255,14 +277,22 @@ export default function Projects() {
                         <Box
                           boxSize={{ base: "16px", md: "20px" }}
                           borderRadius="full"
+                          position="relative"
+                          overflow="hidden"
                         >
                           <Image
                             src="/images/github_white.svg"
                             alt="github-logo"
-                            boxSize={{ base: "16px", md: "20px" }}
-                            borderRadius="full"
+                            fill
+                            style={{
+                              objectFit: "contain",
+                              borderRadius: "50%", // same as borderRadius="full"
+                            }}
+                            placeholder="blur"
+                            blurDataURL="https://via.placeholder.com/10x10"
                           />
                         </Box>
+
                         <Text>Github Link</Text>
                       </Button>
                     </Flex>

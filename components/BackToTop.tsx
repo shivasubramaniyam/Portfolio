@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Button, Image, useBreakpointValue } from "@chakra-ui/react";
+import { Button, Box, useBreakpointValue } from "@chakra-ui/react";
 import { useColorModeValue, useColorMode } from "@/components/ui/color-mode";
-
+import Image from "next/image";
 export function BackToTopButton() {
   const [visible, setVisible] = useState(false);
   const bgColor = useColorModeValue("#A2B0FF", "#2f2f5f");
@@ -59,16 +59,22 @@ export function BackToTopButton() {
       borderRadius="full"
       zIndex="1000"
     >
-      <Image
-        src="/images/uparrow.svg"
-        alt="Up arrow"
-        boxSize={{ base: "30px", md: "35px" }}
-        filter={
-          colorMode === "dark"
-            ? "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
-            : undefined
-        }
-      />
+      <Box position="relative" boxSize={{ base: "30px", md: "35px" }}>
+        <Image
+          src="/images/uparrow.svg"
+          alt="Up arrow"
+          fill
+          style={{
+            objectFit: "contain",
+            filter:
+              colorMode === "dark"
+                ? "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
+                : undefined,
+          }}
+          placeholder="blur"
+          blurDataURL="https://via.placeholder.com/10x10"
+        />
+      </Box>
     </Button>
   );
 }

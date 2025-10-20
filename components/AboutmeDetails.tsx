@@ -1,5 +1,6 @@
-import { Box, Text, Flex, Image, Tag } from "@chakra-ui/react";
+import { Box, Text, Flex, Tag } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
+import Image from "next/image";
 
 export default function AboutmeDetails() {
   const detailBackground = useColorModeValue("#a9a9b346", "#1a1a2e");
@@ -37,13 +38,16 @@ export default function AboutmeDetails() {
               overflow="hidden"
               boxShadow="0 4px 12px rgba(0,0,0,0.1)"
               flexShrink={0}
+              position="relative"
             >
               <Image
                 src="/images/IMG_72611.JPG"
                 alt="Shiva"
-                width="100%"
-                height="100%"
-                objectFit="cover"
+                fill
+                loading="lazy"
+                style={{ objectFit: "cover", borderRadius: "9999px" }}
+                placeholder="blur"
+                blurDataURL="https://via.placeholder.com/10x10"
               />
             </Box>
 
@@ -146,10 +150,18 @@ export default function AboutmeDetails() {
                 display="flex"
                 alignItems="center"
                 justifyContent={{ base: "left", md: "center" }}
-                // bg="#6b7febec"
+                position="relative"
                 borderRadius="full"
               >
-                <Image src="/images/IMG_72611.JPG" alt="" borderRadius="full" />
+                <Image
+                  src="/images/IMG_72611.JPG"
+                  alt=""
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover", borderRadius: "9999px" }}
+                  placeholder="blur"
+                  blurDataURL="https://via.placeholder.com/10x10"
+                />
               </Box>
               <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
@@ -198,8 +210,17 @@ export default function AboutmeDetails() {
                 alignItems="center"
                 justifyContent="center"
                 borderRadius="full"
+                position="relative"
               >
-                <Image src="/images/github.svg" alt="" />
+                <Image
+                  src="/images/github.svg"
+                  alt=""
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover", borderRadius: "9999px" }}
+                  placeholder="blur"
+                  blurDataURL="https://via.placeholder.com/10x10"
+                />
               </Box>
               <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
@@ -245,10 +266,18 @@ export default function AboutmeDetails() {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-                // bg="#6b7febec"
+                position="relative"
                 borderRadius={"full"}
               >
-                <Image src="/images/linkedin.svg" alt="" />
+                <Image
+                  src="/images/linkedin.svg"
+                  alt=""
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover", borderRadius: "9999px" }}
+                  placeholder="blur"
+                  blurDataURL="https://via.placeholder.com/10x10"
+                />
               </Box>
               <Box flex={1} color={textColor}>
                 <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
