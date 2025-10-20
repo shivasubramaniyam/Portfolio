@@ -11,6 +11,7 @@
   "dependencies": {
     "@chakra-ui/react": "^3.24.0",
     "@emotion/react": "^11.14.0",
+    "@zag-js/interact-outside": "^1.26.3",
     "dotenv": "^17.2.3",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.545.0",
