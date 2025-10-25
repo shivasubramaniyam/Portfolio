@@ -1,23 +1,32 @@
 "use client";
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Flex,
-  Text,
-  Image,
-  Spinner,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Text, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import Lottie from "lottie-react";
+
+
 import sunny from "@/public/lottie/Sunny.json";
 import cloudy from "@/public/lottie/Clouds.json";
 import rainy from "@/public/lottie/rainy.json";
 import storm from "@/public/lottie/storm.json";
 
+
+interface WeatherData {
+  name: string;
+  weather: {
+    main: string;
+    description: string;
+  }[];
+  main: {
+    temp: number;
+  };
+}
+
+
 export default function WeatherAPI() {
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState(null);
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
   const responsiveFontSize = useBreakpointValue({
     base: "12px",
     sm: "14px",
@@ -26,7 +35,7 @@ export default function WeatherAPI() {
   });
 
   useEffect(() => {
-    const fetchWeather = async (lat, lon) => {
+    const fetchWeather = async (lat: number, lon: number) => {
       try {
         const apiKey = process.env.NEXT_PUBLIC_WEATHER_KEY;
         const res = await fetch(
@@ -34,16 +43,20 @@ export default function WeatherAPI() {
         );
 
         const data = await res.json();
-        if (res.ok) setWeather(data);
-        else setError(data.message);
+
+        if (res.ok) {
+          setWeather(data as WeatherData);
+        } else {
+          setError(data.message || "Failed to fetch weather");
+        }
       } catch (err) {
+        console.error("Weather fetch error:", err);
         setError("Failed to fetch weather at this time");
       } finally {
         setLoading(false);
       }
     };
 
-    // Get user location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -52,13 +65,11 @@ export default function WeatherAPI() {
         },
         () => {
           setError("Location permission denied. Showing default location.");
-          // fallback: default to Bangalore
-          fetchWeather(12.9716, 77.5946);
+          fetchWeather(12.9716, 77.5946); 
         }
       );
     } else {
       setError("Geolocation not supported by your browser.");
-      // fallback: default to Bangalore
       fetchWeather(12.9716, 77.5946);
     }
   }, []);
@@ -80,7 +91,8 @@ export default function WeatherAPI() {
   if (!weather) return null;
 
   const condition = weather.weather[0].main.toLowerCase();
-  let animation = sunny;
+  let animation: object = sunny;
+
   if (condition.includes("cloud")) animation = cloudy;
   else if (condition.includes("rain")) animation = rainy;
   else if (condition.includes("storm") || condition.includes("thunder"))
