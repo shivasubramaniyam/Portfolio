@@ -36,7 +36,7 @@ export default function Home() {
           top: 0,
           left: 0,
           right: 0,
-          height: 8,
+          height: 5,
           originX: 0,
           backgroundColor: backgroundColor,
           zIndex: 1,
@@ -49,6 +49,7 @@ export default function Home() {
         gap="16px"
         p="16px"
         fontFamily="'GT Walsheim', sans-serif"
+        overflowY="none"
       >
         <Header />
         <AboutmeDetails />
