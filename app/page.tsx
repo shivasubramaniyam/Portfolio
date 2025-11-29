@@ -21,7 +21,7 @@ export default function Home() {
     setMounted(true);
   }, []);
   const { scrollYProgress } = useScroll();
-  const backgroundColor = useColorModeValue("#90EE90", "#6b7febec");
+  const backgroundColor = useColorModeValue("#6366F1", "#9333EA");
 
   if (!mounted) return null;
 
