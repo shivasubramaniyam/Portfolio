@@ -3,7 +3,7 @@ import { useColorModeValue } from "./ui/color-mode";
 import Image from "next/image";
 
 export default function AboutmeDetails() {
-  const detailBackground = useColorModeValue("#a9a9b346", "#1a1a2e");
+  const detailBackground = useColorModeValue("#a9a9b31f", "#1a1a2eB3");
   const tagBg = useColorModeValue("#bccfe8ff", "#2d2d44");
   const textColor = useColorModeValue("#000", "#fff");
   return (

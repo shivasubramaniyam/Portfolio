@@ -31,7 +31,7 @@ export default function Header() {
     fetchVisitorCount();
   }, []);
 
-  const detailBackground = useColorModeValue("#a9a9b346", "#1a1a2e");
+  const detailBackground = useColorModeValue("#a9a9b31f", "#1a1a2eB3");
   const responsiveFontSize = useBreakpointValue({
     base: "12px",
     sm: "14px",

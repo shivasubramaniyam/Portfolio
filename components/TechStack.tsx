@@ -5,7 +5,7 @@ import { useColorModeValue } from "@/components/ui/color-mode";
 export default function Skills() {
   const textColor = useColorModeValue("#000", "#fff");
   const tagBg = useColorModeValue("#bccfe8ff", "#2f2f5f");
-  const gridcolor = useColorModeValue("#fff", "#1a1a2e");
+  const gridcolor = useColorModeValue("#fff", "#1a1a2eB3");
 
   const skills = {
     Frontend: ["ReactJS", "NextJS", "Chakra UI", "BootstrapUI"],
@@ -38,7 +38,7 @@ export default function Skills() {
       <Box
         p={{ base: "16px", md: "24px" }}
         borderRadius="12px"
-        bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
+        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
       >
         <Heading
           textAlign="center"

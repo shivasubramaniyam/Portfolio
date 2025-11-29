@@ -31,7 +31,7 @@ export default function Resume() {
         minH="100vh"
         bgGradient={bgGradient}
         textAlign="center"
-        bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
+        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
         borderRadius="12px"
       >
         <MotionHeading

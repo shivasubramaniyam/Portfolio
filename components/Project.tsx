@@ -101,7 +101,7 @@ export default function Projects() {
       <Box
         p={{ base: "16px", md: "24px" }}
         borderRadius="12px"
-        bg={useColorModeValue("#a9a9b346", "#0f0f1f")}
+        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
       >
         <Heading
           textAlign="center"
