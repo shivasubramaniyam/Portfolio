@@ -48,7 +48,7 @@ export default function Header() {
         <Box display="flex" flexDir={{ base: "column", md: "row" }} gap="16px">
           {" "}
           <Box
-            width={{ base: "100", md: "65%" }}
+            width={{ base: "100%", md: "65%" }}
             bg={detailBackground}
             display="flex"
             flexDir="row"
@@ -68,6 +68,9 @@ export default function Header() {
                 flexDir="row"
                 display={navDisplay}
                 width={{ base: "max-content", md: "auto" }}
+                // overflowX="auto"
+                alignItems="center"
+                whiteSpace="nowrap"
               >
                 <ChakraLink
                   as={NextLink}
@@ -122,7 +125,7 @@ export default function Header() {
                   className="heading"
                   whiteSpace="normal"
                 >
-                  Cover Letter
+                  CoverLetter
                 </ChakraLink>
                 <ChakraLink
                   // as={NextLink}
@@ -130,14 +133,14 @@ export default function Header() {
                   className="heading"
                   whiteSpace="normal"
                 >
-                  Visitors: {visitorCount}
+                  Visitors:{visitorCount}
                 </ChakraLink>{" "}
+                <Box className="theme_button">
+                  {" "}
+                  <ColorModeButton />
+                </Box>
               </Flex>
             </Heading>{" "}
-            <Box className="theme_button">
-              {" "}
-              <ColorModeButton />
-            </Box>
           </Box>{" "}
           <Box
             width={{ base: "100", md: "35%" }}
