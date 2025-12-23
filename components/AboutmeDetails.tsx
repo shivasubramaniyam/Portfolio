@@ -42,7 +42,7 @@ export default function AboutmeDetails() {
             >
               <Image
                 src="/images/IMG_72611.JPG"
-                alt="Shiva"
+                alt="Shiva Subramaniyam Full Stack Developer"
                 fill
                 loading="lazy"
                 style={{ objectFit: "cover", borderRadius: "9999px" }}
@@ -155,7 +155,7 @@ export default function AboutmeDetails() {
               >
                 <Image
                   src="/images/IMG_72611.JPG"
-                  alt=""
+                  alt="Shiva's Details"
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
@@ -214,7 +214,7 @@ export default function AboutmeDetails() {
               >
                 <Image
                   src="/images/github.svg"
-                  alt=""
+                  alt="shiva's github link"
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
@@ -271,7 +271,7 @@ export default function AboutmeDetails() {
               >
                 <Image
                   src="/images/linkedin.svg"
-                  alt=""
+                  alt="shiva's linkedIn account"
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}

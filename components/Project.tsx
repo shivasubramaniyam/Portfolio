@@ -145,7 +145,7 @@ export default function Projects() {
                   >
                     <Image
                       src={project.image}
-                      alt={project.title}
+                      alt={`shiva's ${project.title}`}
                       fill
                       loading="lazy"
                       style={{
@@ -230,7 +230,7 @@ export default function Projects() {
                           >
                             <Image
                               src={project.logo}
-                              alt="logo"
+                              alt="shiva's logo"
                               fill
                               style={{
                                 objectFit: "contain",

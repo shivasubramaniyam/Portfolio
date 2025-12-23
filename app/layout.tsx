@@ -14,8 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shiva's Portfolio",
-  description: "Portfolio created usint NextJS on top of ChakraUI",
+  title: "Shiva Subramaniyam | Full Stack Developer",
+  description:
+    "Full Stack Developer with experience in Next.js, React, MongoDB, and APIs.",
+  openGraph: {
+    title: "Shiva Subramaniyam | Full Stack Developer",
+    description:
+      "Explore my portfolio, projects, and real-world full-stack applications.",
+    url: "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
+    siteName: "Shiva Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
