@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Portfolio Website – Shiva Subramaniyam
 
-## Getting Started
+## 🔗 Live Website: https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
 
-First, run the development server:
+### This is my personal developer portfolio website built using Next.js.
+It showcases my skills, projects, and practical full-stack features such as API integrations, real-time data, and database-backed visitor tracking.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📌 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚡ Modern responsive UI
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🌦️ Live Weather API integration with animated visuals
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+👀 User interaction / visitor counter API
 
-## Learn More
+🧠 Custom backend API using Next.js API Routes
 
-To learn more about Next.js, take a look at the following resources:
+🗄️ Persistent data storage using MongoDB Atlas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎨 Clean UI using Chakra UI
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🚀 Deployed on Vercel
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
+Frontend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js (React Framework)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+JavaScript (ES6+)
+
+Chakra UI – component-based styling
+
+Framer Motion / Lottie (for animations)
+
+Backend
+
+Next.js API Routes
+
+Node.js
+
+MongoDB Atlas (cloud database)
+
+MongoDB Node.js Driver
+
+## APIs Used
+
+OpenWeatherMap API – real-time weather data
+
+Custom Visitor Count API – tracks site visits using MongoDB
+
+## 🗂️ Project Structure (Simplified)
+portfolio-nextjs/
+├── app/
+│   ├── page.jsx
+│   └── api/
+│       └── visitors/
+│           └── route.js
+├── components/
+│   ├── WeatherAPI.jsx
+│   └── VisitorCount.jsx
+├── public/
+├── .env.local
+├── package.json
+└── README.md
+
+## 🔑 Environment Variables
+
+Create a .env.local file in the root directory:
+
+WEATHER_KEY=your_openweather_api_key
+MONGODB_URI=your_mongodb_connection_uri
+
+## 🚀 Deployment
+
+Platform: Vercel
+
+URL: https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
+
+Deployment Type: Serverless
+
+CI/CD: Automatic deployment on every GitHub push
+
+## 📊 Visitor Counter (Custom API)
+
+Built using Next.js API Routes
+
+Stores visit records in MongoDB Atlas
+
+Returns total visit count in real time
+
+Demonstrates backend + database integration
+
+## 🌦️ Weather Feature
+
+Fetches real-time weather data based on city
+
+Displays:
+
+Temperature
+
+Weather condition
+
+Animated weather visuals
+
+Demonstrates third-party API consumption
+
+## 🎯 Purpose of This Project
+
+Showcase frontend + backend skills
+
+Demonstrate real-world API integration
+
+Practice cloud database usage
+
+Build a production-ready personal portfolio
+
+## 👤 Author
+
+### Shiva Subramaniyam S
+Full Stack Developer
+
+
+Thank you 
