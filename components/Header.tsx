@@ -153,6 +153,11 @@ export default function Header() {
             borderRadius="12px"
             overflowX={{ base: "auto", md: "visible" }}
             whiteSpace={{ base: "nowrap", md: "normal" }}
+            onClick={() =>
+              (window.location.href =
+                "https://weatherappshiva-8mwcjawfx-shivasubramaniyams-projects.vercel.app/")
+            }
+            cursor="pointer"
           >
             <WeatherAPI />
           </Box>
