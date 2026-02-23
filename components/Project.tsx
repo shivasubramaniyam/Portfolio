@@ -56,6 +56,23 @@ export default function Projects() {
       logo: "/images/tgrid_logo.svg",
     },
     {
+      title: "Custom Canvas Editor (Fabric.js)",
+      description:
+        "A dynamic canvas-based design tool built using Fabric.js, allowing users to add, edit, resize, and customize images and text in real-time. Includes drag-and-drop functionality, layer management, object transformations, and export options for generating final designs.",
+      image: "/images/fabric.png",
+      tools: [
+        "Fabric.js",
+        "React",
+        "Canvas API",
+        "JavaScript",
+        "Custom Rendering",
+      ],
+      link: "https://github.com/yourusername/fabric-editor",
+      type: "private",
+      company: "Personal Project",
+      logo: "/images/tgrid_logo.svg",
+    },
+    {
       title: "Blind Assistance",
       description:
         "An AI-powered assistive device using Raspberry Pi that provides real-time object recognition, obstacle detection, and audio feedback to enhance mobility and independence for visually impaired individuals. ",
@@ -82,6 +99,42 @@ export default function Projects() {
       type: "public",
       company: "JyothyIT",
       logo: "/images/jit.png",
+    },
+    {
+      title: "E-Commerce Backend API",
+      description:
+        "A production-ready e-commerce backend built with Node.js, Express, PostgreSQL, and Prisma ORM. It includes authentication (JWT), role-based authorization, product management, cart system, order management, and secure API architecture following real-world backend best practices.",
+      image: "/images/backend_logo.svg",
+      tools: [
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Prisma ORM",
+        "JWT",
+        "GCP",
+      ],
+      link: "https://github.com/shivasubramaniyam/E-commerce",
+      type: "public",
+      company: "Personal Project",
+      logo: "/images/backend_logo.svg",
+    },
+
+    {
+      title: "Weather Forecast Web App",
+      description:
+        "A dynamic weather application that fetches real-time and forecast data using external weather APIs. Features include city-based search, geolocation detection, multi-day forecast, responsive UI design, API error handling, and optimized performance using Reatc.js.",
+      image: "/images/weather.svg",
+      tools: [
+        "React + Vite",
+        "OpenWeather API",
+        "Shadcn UI",
+        "Geolocation API",
+        "Vercel Deployment",
+      ],
+      link: "https://github.com/shivasubramaniyam/weather_app_shiva",
+      type: "public",
+      company: "Personal Project",
+      logo: "/images/globe.svg",
     },
   ];
 
