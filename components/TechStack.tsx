@@ -8,7 +8,7 @@ export default function Skills() {
   const gridcolor = useColorModeValue("#fff", "#1a1a2eB3");
 
   const skills = {
-    Frontend: ["ReactJS", "NextJS", "Chakra UI", "BootstrapUI"],
+    Frontend: ["ReactJS", "NextJS", "FabricJS", "Chakra UI", "Shadcn UI"],
     "Automation Testing": ["Automation Testing", "App Testing", "API Testing"],
     DApp: ["WebRTC", "IPFS"],
     Tools: ["Git", "VS Code", "Figma", "Postman", "Puppeteer"],
