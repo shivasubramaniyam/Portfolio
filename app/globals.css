@@ -158,7 +158,10 @@ a {
   height: 32px;
   border-radius: 50%;
   background-color: transparent;
-  transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -168,4 +171,29 @@ a {
 .theme_button:hover {
   width: 40px;
   height: 40px;
+}
+
+/* scroll thumb size */
+.scrollx {
+  overflow: auto;
+  white-space: "nowrap";
+  -ms-overflow-style: "none";
+  scrollbar-width: "none";
+}
+/* 1. Define the scrollbar width/height */
+.scrollx::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* 2. Track remains transparent */
+.scrollx::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 3. The THUMB is transparent by default (hidden) */
+.scrollx::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.3s ease 1s;
 }
