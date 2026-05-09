@@ -1,0 +1,18 @@
+# Shiva Subramaniyam Portfolio
+
+Frontend Developer specializing in:
+- React
+- Next.js
+- Node.js
+- Fabric.js
+
+Important Pages:
+https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
+https://weatherappshiva-kk1dhtf3h-shivasubramaniyams-projects.vercel.app/
+https://github.com/shivasubramaniyam/E-commerce
+
+GitHub:
+https://github.com/shivasubramaniyam
+
+LinkedIn:
+https://linkedin.com/in/shiva-subramaniyam-s
