@@ -63,6 +63,7 @@ export default function Header() {
             {/* Left side navigation */}
             <Heading as="h1" size="md">
               <Flex
+                className="scrollx"
                 as="nav"
                 gap={navGap}
                 flexDir="row"

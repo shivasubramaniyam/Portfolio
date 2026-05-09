@@ -42,7 +42,7 @@ export default function AboutmeDetails() {
             >
               <Image
                 src="/images/IMG_72611.JPG"
-                alt="Shiva Subramaniyam Full Stack Developer"
+                alt="Shiva Subramaniyam profile picture"
                 fill
                 loading="lazy"
                 style={{ objectFit: "cover", borderRadius: "9999px" }}
@@ -199,7 +199,7 @@ export default function AboutmeDetails() {
                 window.open(
                   "https://github.com/shivasubramaniyam",
                   "_blank",
-                  "noopener,noreferrer"
+                  "noopener,noreferrer",
                 )
               }
             >
@@ -256,7 +256,7 @@ export default function AboutmeDetails() {
                 window.open(
                   "https://www.linkedin.com/in/shiva-subramaniyam-s",
                   "_blank",
-                  "noopener,noreferrer"
+                  "noopener,noreferrer",
                 )
               }
             >

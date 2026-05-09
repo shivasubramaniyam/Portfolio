@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { Flex } from "@chakra-ui/react";
 import { motion, useScroll } from "motion/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
@@ -13,6 +11,7 @@ import AboutmeDetails from "@/components/AboutmeDetails";
 import Resume from "@/components/Resume";
 import CoverLetter from "@/components/CoverLetter";
 import { BackToTopButton } from "@/components/BackToTop";
+import Script from "next/script";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -27,7 +26,26 @@ export default function Home() {
 
   return (
     <>
-      {" "}
+      <Script
+        id="schema-person"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Shiva Subramaniyam S",
+            url: "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
+            image:
+              "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/profile.jpg",
+            sameAs: [
+              "https://github.com/shivasubramaniyam",
+              "https://linkedin.com/in/shiva-subramaniyam-s",
+            ],
+            jobTitle: "Full Stack Developer",
+            knowsAbout: ["React", "Next.js", "Node.js", "Fabric.js"],
+          }),
+        }}
+      />
       <motion.div
         id="scroll-indicator"
         style={{
