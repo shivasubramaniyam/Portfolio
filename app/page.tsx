@@ -1,8 +1,4 @@
-"use client";
 import { Flex } from "@chakra-ui/react";
-import { motion, useScroll } from "motion/react";
-import { useColorModeValue } from "@/components/ui/color-mode";
-import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Projects from "@/components/Project";
 import TechStack from "@/components/TechStack";
@@ -11,55 +7,39 @@ import AboutmeDetails from "@/components/AboutmeDetails";
 import Resume from "@/components/Resume";
 import CoverLetter from "@/components/CoverLetter";
 import { BackToTopButton } from "@/components/BackToTop";
-import Script from "next/script";
+import ScrollIndicator from "@/components/ScrollIndicator";
+
+const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Shiva Subramaniyam S",
+  url: `${siteUrl}/`,
+  image: `${siteUrl}/images/IMG_72611.JPG`,
+  sameAs: [
+    "https://github.com/shivasubramaniyam",
+    "https://linkedin.com/in/shiva-subramaniyam-s",
+  ],
+  jobTitle: "Full Stack Developer",
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "Node.js",
+    "Fabric.js",
+    "MongoDB",
+    "TypeScript",
+  ],
+};
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  const { scrollYProgress } = useScroll();
-  const backgroundColor = useColorModeValue("#6366F1", "#9333EA");
-
-  if (!mounted) return null;
-
   return (
     <>
-      <Script
-        id="schema-person"
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Shiva Subramaniyam S",
-            url: "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
-            image:
-              "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/profile.jpg",
-            sameAs: [
-              "https://github.com/shivasubramaniyam",
-              "https://linkedin.com/in/shiva-subramaniyam-s",
-            ],
-            jobTitle: "Full Stack Developer",
-            knowsAbout: ["React", "Next.js", "Node.js", "Fabric.js"],
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <motion.div
-        id="scroll-indicator"
-        style={{
-          scaleX: scrollYProgress,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 5,
-          originX: 0,
-          backgroundColor: backgroundColor,
-          zIndex: 1,
-        }}
-      />
+      <ScrollIndicator />
       <Flex
         width="100%"
         height="auto"

@@ -35,7 +35,7 @@ export default function Resume() {
         borderRadius="12px"
       >
         <MotionHeading
-          as="h4"
+          as="h2"
           mb={{ base: 12, md: 24 }}
           textAlign="center"
           fontFamily="'GT Walsheim', sans-serif"

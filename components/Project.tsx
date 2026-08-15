@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Heading,
@@ -9,17 +10,19 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { useColorMode } from "@/components/ui/color-mode";
 import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 import { useColorModeValue } from "@/components/ui/color-mode";
 
 export default function Projects() {
-  const { colorMode } = useColorMode();
   const MotionBox = motion.create(Box);
   const cardBg = useColorModeValue("#f8f9fa", "#1a1a2e");
   const textColor = useColorModeValue("#000", "#fff");
   const projectCard = useColorModeValue("#bccfe8ff", "#2f2f5f");
   const projectCardColor = useColorModeValue("#000", "#fff");
+  const issuerLogoFilter = useColorModeValue(
+    "brightness(0) saturate(100%)",
+    undefined
+  );
 
   const projects = [
     {
@@ -205,13 +208,11 @@ export default function Projects() {
                         objectFit: "contain",
                         borderRadius: "8px",
                         filter:
-                          colorMode === "light" &&
                           project.image === "/images/issuer_logo.svg"
-                            ? "brightness(0) saturate(100%)"
+                            ? issuerLogoFilter
                             : undefined,
                       }}
                       // placeholder="blur"
-                      blurDataURL="https://via.placeholder.com/10x10"
                     />
                   </Box>
 
@@ -286,12 +287,10 @@ export default function Projects() {
                               alt="shiva's logo"
                               fill
                               style={{
-                                objectFit: "contain",
-                                borderRadius: "50%", // optional, same as Chakra's borderRadius="full"
-                              }}
-                              placeholder="blur"
-                              blurDataURL="https://via.placeholder.com/10x10"
-                            />
+                              objectFit: "contain",
+                              borderRadius: "50%", // optional, same as Chakra's borderRadius="full"
+                            }}
+                          />
                           </Box>
                         </Box>
                       )}
@@ -342,7 +341,6 @@ export default function Projects() {
                               borderRadius: "50%", // same as borderRadius="full"
                             }}
                             // placeholder="blur"
-                            blurDataURL="https://via.placeholder.com/10x10"
                           />
                         </Box>
 

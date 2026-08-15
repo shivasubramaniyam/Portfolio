@@ -50,7 +50,16 @@ export function useColorMode(): UseColorModeReturn {
 
 export function useColorModeValue<T>(light: T, dark: T) {
   const { resolvedTheme } = useTheme();
-  const theme = resolvedTheme || "light";
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return the light value until mounted so the server-rendered HTML matches
+  // the client's first render. next-themes can't know the stored/system theme
+  // during SSR, so resolving it synchronously would cause hydration mismatches.
+  const theme = !mounted ? "light" : resolvedTheme || "light";
   return theme === "dark" ? dark : light;
 }
 

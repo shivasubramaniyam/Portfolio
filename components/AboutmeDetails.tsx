@@ -1,4 +1,5 @@
-import { Box, Text, Flex, Tag } from "@chakra-ui/react";
+"use client";
+import { Box, Text, Flex, Tag, Heading } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 import Image from "next/image";
 
@@ -44,23 +45,36 @@ export default function AboutmeDetails() {
                 src="/images/IMG_72611.JPG"
                 alt="Shiva Subramaniyam profile picture"
                 fill
-                loading="lazy"
+                priority
+                sizes="140px"
                 style={{ objectFit: "cover", borderRadius: "9999px" }}
-                placeholder="blur"
-                blurDataURL="https://via.placeholder.com/10x10"
               />
             </Box>
 
             {/* About Text */}
             <Box flex={1}>
               <Text
-                fontSize="2xl"
-                fontWeight="bold"
-                mb="8px"
+                fontSize="xs"
+                fontWeight="semibold"
+                letterSpacing="0.12em"
+                textTransform="uppercase"
+                color={textColor}
+                opacity={0.6}
+                mb="4px"
                 textAlign={{ base: "center", md: "left" }}
               >
                 About Me
               </Text>
+
+              <Heading
+                as="h1"
+                fontSize={{ base: "2xl", md: "3xl" }}
+                fontWeight="bold"
+                mb="8px"
+                textAlign={{ base: "center", md: "left" }}
+              >
+                Shiva Subramaniyam — Full Stack Developer
+              </Heading>
 
               <Text
                 fontSize="md"
@@ -158,9 +172,8 @@ export default function AboutmeDetails() {
                   alt="Shiva's Details"
                   fill
                   loading="lazy"
+                  sizes="50px"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
-                  placeholder="blur"
-                  blurDataURL="https://via.placeholder.com/10x10"
                 />
               </Box>
               <Box flex={1} color={textColor}>
@@ -214,12 +227,11 @@ export default function AboutmeDetails() {
               >
                 <Image
                   src="/images/github.svg"
-                  alt="shiva's github link"
+                  alt="Shiva's GitHub profile"
                   fill
                   loading="lazy"
+                  sizes="50px"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
-                  // placeholder="blur"
-                  blurDataURL="https://via.placeholder.com/10x10"
                 />
               </Box>
               <Box flex={1} color={textColor}>
@@ -271,12 +283,11 @@ export default function AboutmeDetails() {
               >
                 <Image
                   src="/images/linkedin.svg"
-                  alt="shiva's linkedIn account"
+                  alt="Shiva's LinkedIn profile"
                   fill
                   loading="lazy"
+                  sizes="50px"
                   style={{ objectFit: "cover", borderRadius: "9999px" }}
-                  // placeholder="blur"
-                  blurDataURL="https://via.placeholder.com/10x10"
                 />
               </Box>
               <Box flex={1} color={textColor}>

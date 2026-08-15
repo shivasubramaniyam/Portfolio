@@ -1,3 +1,4 @@
+"use client";
 import { Box, Heading, Text, VStack, HStack, Tag } from "@chakra-ui/react";
 import { motion, easeOut } from "framer-motion";
 import { useColorModeValue } from "@/components/ui/color-mode";
