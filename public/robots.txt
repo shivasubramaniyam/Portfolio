@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/sitemap.xml

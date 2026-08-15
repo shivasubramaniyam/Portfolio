@@ -1,6 +1,5 @@
 "use client";
 import {
-  Heading,
   Flex,
   Box,
   Link as ChakraLink,
@@ -61,10 +60,9 @@ export default function Header() {
             whiteSpace={{ base: "nowrap", md: "normal" }}
           >
             {/* Left side navigation */}
-            <Heading as="h1" size="md">
+            <Box as="nav" aria-label="Primary">
               <Flex
                 className="scrollx"
-                as="nav"
                 gap={navGap}
                 flexDir="row"
                 display={navDisplay}
@@ -141,7 +139,7 @@ export default function Header() {
                   <ColorModeButton />
                 </Box>
               </Flex>
-            </Heading>{" "}
+            </Box>{" "}
           </Box>{" "}
           <Box
             width={{ base: "100", md: "35%" }}

@@ -7,14 +7,17 @@ import {
   useBreakpointValue,
   ButtonProps,
 } from "@chakra-ui/react";
-import { useColorModeValue, useColorMode } from "@/components/ui/color-mode";
+import { useColorModeValue } from "@/components/ui/color-mode";
 
 export function BackToTopButton() {
   const [visible, setVisible] = useState(false);
   const bgColor = useColorModeValue("#A2B0FF", "#2f2f5f");
   const hoverBg = useColorModeValue("teal.600", "teal.400");
   const color = useColorModeValue("white", "gray.800");
-  const { colorMode } = useColorMode();
+  const upArrowFilter = useColorModeValue(
+    undefined,
+    "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
+  );
 
   const buttonSize = useBreakpointValue({
     base: "md",
@@ -54,11 +57,7 @@ export function BackToTopButton() {
         src="/images/uparrow.svg"
         alt="Up arrow"
         boxSize={{ base: "30px", md: "35px" }}
-        filter={
-          colorMode === "dark"
-            ? "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
-            : undefined
-        }
+        filter={upArrowFilter}
       />
     </Button>
   );

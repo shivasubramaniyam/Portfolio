@@ -12,8 +12,14 @@ const manrope = Manrope({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
+const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Shiva Subramaniyam | Full Stack Developer",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Shiva Subramaniyam | Full Stack Developer",
+    template: "%s | Shiva Subramaniyam",
+  },
   description:
     "Full Stack Developer with experience in Next.js, React, MongoDB, and APIs.",
   keywords: [
@@ -25,22 +31,19 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Shiva Subramaniyam S" }],
   creator: "Shiva Subramaniyam S",
-  metadataBase: new URL(
-    "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
-  ),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Shiva Subramaniyam | Full Stack Developer",
     description:
       "Explore my portfolio, projects, and real-world full-stack applications.",
-    url: "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
+    url: `${siteUrl}/`,
     siteName: "Shiva Portfolio",
-    images: [
-      {
-        url: "/preview.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -49,7 +52,6 @@ export const metadata: Metadata = {
     title: "Shiva Subramaniyam Portfolio",
     description:
       "Frontend Developer Portfolio with React, Next.js, and Backend Projects",
-    images: ["/preview.png"],
   },
 };
 

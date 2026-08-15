@@ -5,15 +5,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@chakra-ui/react"],
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com",
-      },
-    ],
-
     dangerouslyAllowSVG: true,
-
     formats: ["image/avif", "image/webp"],
   },
 };

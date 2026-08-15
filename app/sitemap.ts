@@ -1,24 +1,14 @@
 import { MetadataRoute } from "next";
 
+const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/",
+      url: `${siteUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: "https://weatherappshiva-kk1dhtf3h-shivasubramaniyams-projects.vercel.app/",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://github.com/shivasubramaniyam/E-commerce",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
     },
   ];
 }

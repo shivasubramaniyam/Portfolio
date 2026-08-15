@@ -12,16 +12,21 @@ if (!uri) {
 let client;
 let clientPromise;
 
-if (!clientPromise) {
-  client = new MongoClient(uri);
-  clientPromise = client.connect();
+// Connect lazily on first request instead of at import time, so the module
+// can be loaded during builds / prerendering without opening a connection.
+function getClient() {
+  if (!clientPromise) {
+    client = new MongoClient(uri);
+    clientPromise = client.connect();
+  }
+  return clientPromise;
 }
 
 export async function GET(request) {
   const ipHeader = request?.headers?.get("x-forwarded-for") ?? null;
   const ip = ipHeader ? ipHeader.split(",")[0].trim() : "unknown";
   try {
-    const mongoClient = await clientPromise;
+    const mongoClient = await getClient();
     const db = mongoClient.db("PortfolioDB");
     const collection = db.collection("visitor");
 
