@@ -1,33 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Image,
-  useBreakpointValue,
-  ButtonProps,
-} from "@chakra-ui/react";
-import { useColorModeValue } from "@/components/ui/color-mode";
-
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 export function BackToTopButton() {
   const [visible, setVisible] = useState(false);
-  const bgColor = useColorModeValue("#A2B0FF", "#2f2f5f");
-  const hoverBg = useColorModeValue("teal.600", "teal.400");
-  const color = useColorModeValue("white", "gray.800");
-  const upArrowFilter = useColorModeValue(
-    undefined,
-    "invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%)"
-  );
-
-  const buttonSize = useBreakpointValue({
-    base: "md",
-    md: "lg",
-  }) as ButtonProps["size"];
-
-  const transformX = useBreakpointValue({
-    base: "none",
-    md: "translateX(50%)",
-  });
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 200);
@@ -41,24 +18,12 @@ export function BackToTopButton() {
 
   return (
     <Button
-      position="fixed"
-      bottom="30px"
-      right="50%"
-      transform={transformX}
-      size={buttonSize}
-      bg={bgColor}
-      color={color}
-      _hover={{ bg: hoverBg }}
       onClick={scrollToTop}
-      borderRadius="full"
-      zIndex="1000"
+      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 h-12 w-12 rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/80"
+      size="icon"
+      aria-label="Back to top"
     >
-      <Image
-        src="/images/uparrow.svg"
-        alt="Up arrow"
-        boxSize={{ base: "30px", md: "35px" }}
-        filter={upArrowFilter}
-      />
+      <ArrowUp className="h-5 w-5" />
     </Button>
   );
 }

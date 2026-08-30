@@ -1,359 +1,196 @@
 "use client";
-import {
-  Box,
-  Heading,
-  Text,
-  SimpleGrid,
-  Button,
-  VStack,
-  HStack,
-  Flex,
-} from "@chakra-ui/react";
 import Image from "next/image";
-import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
-import { useColorModeValue } from "@/components/ui/color-mode";
+import { motion, easeOut } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Github, Lock } from "lucide-react";
+
+const projects = [
+  {
+    title: "Self-Sovereign Identity (SSI) Platform",
+    problem: "Enterprises need a reusable digital credential system that works across platforms without centralizing identity data.",
+    role: "Built the template preview library for SSI platforms — designed credential templates for consistent integration.",
+    image: "/images/issuer_logo.svg",
+    tools: ["React", "Bootstrap UI", "Web3"],
+    link: "",
+    type: "private" as const,
+    company: "TrustGrid",
+  },
+  {
+    title: "Custom Canvas Editor (Fabric.js)",
+    problem: "Designers need a browser-based tool that handles real-time image/text manipulation without heavy desktop software.",
+    role: "Built a dynamic canvas editor with drag-and-drop, layer management, and export — all client-side.",
+    image: "/images/fabric.png",
+    tools: ["Fabric.js", "React", "Canvas API", "JavaScript"],
+    link: "https://github.com/shivasubramaniyam",
+    type: "public" as const,
+    company: "Personal Project",
+  },
+  {
+    title: "SynQ Social — Decentralized Social Network",
+    problem: "Users want to share content without surrendering ownership to centralized platforms.",
+    role: "Built automation pipelines for content verification and platform testing.",
+    image: "/images/synq.svg",
+    tools: ["Puppeteer", "Automation"],
+    link: "",
+    type: "private" as const,
+    company: "TrustGrid",
+  },
+  {
+    title: "E-Commerce Backend API",
+    problem: "A production-ready backend needs auth, role-based access, product management, and order flow — all with real-world security.",
+    role: "Designed and built the full API architecture with JWT auth, Prisma ORM, and PostgreSQL.",
+    image: "/images/backend_logo.svg",
+    tools: ["Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "GCP"],
+    link: "https://github.com/shivasubramaniyam/E-commerce",
+    type: "public" as const,
+    company: "Personal Project",
+  },
+  {
+    title: "Logistic Company Web Page",
+    problem: "A logistics firm needed a modern, data-driven landing page to streamline shipment visibility.",
+    role: "Built the responsive frontend with Next.js and Chakra UI.",
+    image: "/images/logistic.svg",
+    tools: ["Next.js", "Chakra UI"],
+    link: "",
+    type: "private" as const,
+    company: "TrustGrid",
+  },
+  {
+    title: "Blind Assistance — AI Device",
+    problem: "Visually impaired individuals need real-time obstacle detection and audio feedback for safe mobility.",
+    role: "Built the real-time object recognition pipeline with CNN on Raspberry Pi.",
+    image: "/images/raspi.svg",
+    tools: ["Raspberry Pi", "CNN", "Audio Module", "Python"],
+    link: "",
+    type: "private" as const,
+    company: "Jyothy Institute of Technology",
+  },
+  {
+    title: "Weather Forecast Web App",
+    problem: "Users need fast, accurate weather data with clean UI — not bloated weather portals.",
+    role: "Built a lightweight React app with geolocation, multi-day forecast, and error handling.",
+    image: "/images/weather.svg",
+    tools: ["React + Vite", "OpenWeather API", "Shadcn UI"],
+    link: "https://github.com/shivasubramaniyam/weather_app_shiva",
+    type: "public" as const,
+    company: "Personal Project",
+  },
+];
+
+const fadeInOut = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: easeOut },
+  }),
+};
 
 export default function Projects() {
-  const MotionBox = motion.create(Box);
-  const cardBg = useColorModeValue("#f8f9fa", "#1a1a2e");
-  const textColor = useColorModeValue("#000", "#fff");
-  const projectCard = useColorModeValue("#bccfe8ff", "#2f2f5f");
-  const projectCardColor = useColorModeValue("#000", "#fff");
-  const issuerLogoFilter = useColorModeValue(
-    "brightness(0) saturate(100%)",
-    undefined
-  );
-
-  const projects = [
-    {
-      title: "Logistic Company Web Page",
-      description:
-        " A logistic company Streamline your data with a single, intuitive API. Embrace smart tech for a more reliable, profitable, and efficient shipment.",
-      image: "/images/logistic.svg",
-      tools: ["Next.js", "Chakra UI"],
-      link: "https://github.com/yourusername/weather-app",
-      type: "private",
-      company: "trustgrid",
-      logo: "/images/tgrid_logo.svg",
-    },
-    {
-      title: "Self-sovereign identity (SSI) ",
-      description:
-        "The SSI module's template preview provides a library of standard, reusable digital credential templates that enable consistent, easy preview and integration for SSI platforms and tools.",
-      image: "/images/issuer_logo.svg",
-      tools: ["ReactJS", "BootstrapUI"],
-      link: "https://yourportfolio.vercel.app",
-      type: "private",
-      company: "trustgrid",
-      logo: "/images/tgrid_logo.svg",
-    },
-    {
-      title: "Synq Social ",
-      description:
-        "SynQ is a decentralized social network that gives you full control of your online existence. Allowing you to share your life’s moments freely while ensuring privacy and control over your digital narrative.",
-      image: "/images/synq.svg",
-      tools: ["Puppeteer"],
-      link: "",
-      type: "private",
-      company: "trustgrid",
-      logo: "/images/tgrid_logo.svg",
-    },
-    {
-      title: "Custom Canvas Editor (Fabric.js)",
-      description:
-        "A dynamic canvas-based design tool built using Fabric.js, allowing users to add, edit, resize, and customize images and text in real-time. Includes drag-and-drop functionality, layer management, object transformations, and export options for generating final designs.",
-      image: "/images/fabric.png",
-      tools: [
-        "Fabric.js",
-        "React",
-        "Canvas API",
-        "JavaScript",
-        "Custom Rendering",
-      ],
-      link: "https://github.com/yourusername/fabric-editor",
-      type: "private",
-      company: "Personal Project",
-      logo: "/images/tgrid_logo.svg",
-    },
-    {
-      title: "Blind Assistance",
-      description:
-        "An AI-powered assistive device using Raspberry Pi that provides real-time object recognition, obstacle detection, and audio feedback to enhance mobility and independence for visually impaired individuals. ",
-      image: "/images/raspi.svg",
-      tools: ["RaspberryPI", "RasPiOS", "CNN", "Audio Module"],
-      link: "https://github.com/yourusername/chat-dapp",
-      type: "private",
-      company: "JyothyIT",
-      logo: "/images/jit.png",
-    },
-    {
-      title: "Portfolio",
-      description:
-        " portfolio is a well-structured and modern web application built using React with Next.js framework and Chakra UI for styling. It showcases your skills, projects, education, and other professional details. ",
-      image: "/images/globe.svg",
-      tools: [
-        "NextJS",
-        "ChakraUI",
-        "Motion Framer",
-        "API integration",
-        "MongoDB",
-      ],
-      link: "https://github.com/shivasubramaniyam/Portfolio",
-      type: "public",
-      company: "JyothyIT",
-      logo: "/images/jit.png",
-    },
-    {
-      title: "E-Commerce Backend API",
-      description:
-        "A production-ready e-commerce backend built with Node.js, Express, PostgreSQL, and Prisma ORM. It includes authentication (JWT), role-based authorization, product management, cart system, order management, and secure API architecture following real-world backend best practices.",
-      image: "/images/backend_logo.svg",
-      tools: [
-        "Node.js",
-        "Express.js",
-        "PostgreSQL",
-        "Prisma ORM",
-        "JWT",
-        "GCP",
-      ],
-      link: "https://github.com/shivasubramaniyam/E-commerce",
-      type: "public",
-      company: "Personal Project",
-      logo: "/images/backend_logo.svg",
-    },
-
-    {
-      title: "Weather Forecast Web App",
-      description:
-        "A dynamic weather application that fetches real-time and forecast data using external weather APIs. Features include city-based search, geolocation detection, multi-day forecast, responsive UI design, API error handling, and optimized performance using Reatc.js.",
-      image: "/images/weather.svg",
-      tools: [
-        "React + Vite",
-        "OpenWeather API",
-        "Shadcn UI",
-        "Geolocation API",
-        "Vercel Deployment",
-      ],
-      link: "https://github.com/shivasubramaniyam/weather_app_shiva",
-      type: "public",
-      company: "Personal Project",
-      logo: "/images/globe.svg",
-    },
-  ];
-
-  // Variants with exit for fade out
-  const fadeInOut = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.6, ease: easeOut },
-    }),
-    exit: { opacity: 0, y: -40, transition: { duration: 0.4, ease: easeIn } },
-  };
-
   return (
     <section id="Project">
-      <Box
-        p={{ base: "16px", md: "24px" }}
-        borderRadius="12px"
-        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
-      >
-        <Heading
-          textAlign="center"
-          mb={{ base: "16px", md: "24px" }}
-          fontFamily="'GT Walsheim', sans-serif"
-          color={textColor}
-          fontSize={{ base: "xl", md: "2xl" }}
-        >
+      <div className="rounded-2xl bg-card p-4 md:p-6">
+        <h2 className="mb-4 text-center text-xl font-bold md:mb-6 md:text-2xl">
           Projects
-        </Heading>
+        </h2>
 
-        <SimpleGrid
-          columns={{ base: 1, md: 2, lg: 3 }}
-          gap={{ base: 4, md: 6 }}
-        >
-          <AnimatePresence>
-            {projects.map((project, index) => (
-              <MotionBox
-                key={project.title}
-                custom={index}
-                variants={fadeInOut}
-                initial="hidden"
-                whileInView="visible"
-                exit="exit"
-                viewport={{ once: false, amount: 0.3 }}
-                bg={cardBg}
-                borderRadius="2xl"
-                shadow="lg"
-                overflow="hidden"
-                _hover={{ transform: "scale(1.03)", shadow: "xl" }}
-              >
-                <VStack
-                  align="start"
-                  gap={{ base: 3, md: 5 }}
-                  p={{ base: 3, md: 5 }}
-                >
-                  <Box
-                    position="relative"
-                    width="100%"
-                    height={{ base: "140px", md: "180px" }}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={`shiva's ${project.title}`}
-                      fill
-                      loading="lazy"
-                      style={{
-                        objectFit: "contain",
-                        borderRadius: "8px",
-                        filter:
-                          project.image === "/images/issuer_logo.svg"
-                            ? issuerLogoFilter
-                            : undefined,
-                      }}
-                      // placeholder="blur"
-                    />
-                  </Box>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              custom={index}
+              variants={fadeInOut}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Card className="group flex h-full flex-col gap-3 p-4 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] md:p-5">
+                {/* Project Image */}
+                <div className="relative h-36 w-full overflow-hidden rounded-lg bg-muted md:h-44">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    loading="lazy"
+                    className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-                  <Heading
-                    size="md"
-                    fontFamily="'GT Walsheim', sans-serif"
-                    color={textColor}
-                    fontSize={{ base: "md", md: "lg" }}
-                  >
-                    {project.title}
-                  </Heading>
-                  <Text
-                    color={textColor}
-                    width="100%"
-                    fontSize={{ base: "sm", md: "md" }}
-                  >
-                    {project.description}
-                  </Text>
-                  <HStack wrap="wrap" gap={{ base: 2, md: 3 }}>
-                    {project.tools.map((tool, i) => (
-                      <Box
-                        className="tag_text"
-                        key={i}
-                        fontSize={{ base: "xs", md: "sm" }}
-                        bg={projectCard}
-                        color={projectCardColor}
-                        px={{ base: 2, md: 3 }}
-                        py={{ base: 1, md: 1 }}
-                        borderRadius="lg"
-                      >
-                        {tool}
-                      </Box>
-                    ))}
-                  </HStack>
+                {/* Title */}
+                <h3 className="text-base font-bold md:text-lg">
+                  {project.title}
+                </h3>
+
+                {/* Problem */}
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                  <span className="font-semibold text-foreground">Problem: </span>
+                  {project.problem}
+                </p>
+
+                {/* Role */}
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                  <span className="font-semibold text-foreground">My role: </span>
+                  {project.role}
+                </p>
+
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tools.map((tool) => (
+                    <Badge
+                      key={tool}
+                      variant="secondary"
+                      className="rounded-full px-2 py-0.5 text-[10px]"
+                    >
+                      {tool}
+                    </Badge>
+                  ))}
+                </div>
+
+                {/* Footer */}
+                <div className="mt-auto flex items-center gap-2 pt-2">
                   {project.type === "private" ? (
-                    <Flex
-                      direction="row"
-                      gap={{ base: "8px", md: "12px" }}
-                      justifyContent="center"
-                      wrap="wrap"
-                      alignContent="center"
-                    >
-                      <Text
-                        borderRadius="12px"
-                        color="red"
-                        bg="none"
-                        border="1px solid red"
-                        py={2}
-                        px={4}
-                        fontSize={{ base: "sm", md: "md" }}
+                    <>
+                      <Badge
+                        variant="outline"
+                        className="border-destructive/30 text-destructive"
                       >
+                        <Lock className="mr-1 h-3 w-3" />
                         Private
-                      </Text>
-                      {!!project.logo && (
-                        <Box
-                          borderColor={textColor}
-                          border="1px solid"
-                          display="flex"
-                          borderRadius="12px"
-                          padding="4px"
-                          mt="2px"
-                          boxSize={{ base: "35px", md: "40px" }}
-                          justifyContent="center"
-                          alignItems="center"
-                        >
-                          <Box
-                            position="relative"
-                            boxSize={{ base: "25px", md: "30px" }}
-                          >
-                            <Image
-                              src={project.logo}
-                              alt="shiva's logo"
-                              fill
-                              style={{
-                              objectFit: "contain",
-                              borderRadius: "50%", // optional, same as Chakra's borderRadius="full"
-                            }}
-                          />
-                          </Box>
-                        </Box>
-                      )}
-                    </Flex>
+                      </Badge>
+                      <span className="text-[10px] text-muted-foreground">
+                        {project.company}
+                      </span>
+                    </>
                   ) : (
-                    <Flex
-                      direction="row"
-                      gap={{ base: "8px", md: "12px" }}
-                      alignItems="center"
-                      wrap="wrap"
-                    >
-                      <Text
-                        borderRadius="12px"
-                        color="green"
-                        bg="none"
-                        border="1px solid green"
-                        py={2}
-                        px={4}
-                        fontSize={{ base: "sm", md: "md" }}
+                    <>
+                      <Badge
+                        variant="outline"
+                        className="border-green-500/30 text-green-500"
                       >
                         Public
-                      </Text>
+                      </Badge>
                       <Button
-                        display="flex"
-                        flexDirection="row"
-                        gap="8px"
-                        borderRadius="12px"
-                        color={textColor}
-                        bg="none"
-                        border="1px solid"
-                        borderColor={textColor}
-                        px={4}
-                        fontSize={{ base: "sm", md: "md" }}
+                        variant="outline"
+                        size="sm"
+                        className="h-7 gap-1 text-xs"
                         onClick={() => window.open(project.link, "_blank")}
                       >
-                        <Box
-                          boxSize={{ base: "16px", md: "20px" }}
-                          borderRadius="full"
-                          position="relative"
-                          overflow="hidden"
-                        >
-                          <Image
-                            src="/images/github_white.svg"
-                            alt="github-logo"
-                            fill
-                            style={{
-                              objectFit: "contain",
-                              borderRadius: "50%", // same as borderRadius="full"
-                            }}
-                            // placeholder="blur"
-                          />
-                        </Box>
-
-                        <Text>Github Link</Text>
+                        <Github className="h-3 w-3" />
+                        View Code
                       </Button>
-                    </Flex>
+                      <span className="text-[10px] text-muted-foreground">
+                        {project.company}
+                      </span>
+                    </>
                   )}
-                </VStack>
-              </MotionBox>
-            ))}
-          </AnimatePresence>
-        </SimpleGrid>
-      </Box>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

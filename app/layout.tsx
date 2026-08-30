@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
-
-import { Provider } from "@/components/ui/provider";
-import "./globals.css";
 import { Manrope } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
-  // Manrope is a variable font, but you can specify weights if needed
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
@@ -21,13 +18,15 @@ export const metadata: Metadata = {
     template: "%s | Shiva Subramaniyam",
   },
   description:
-    "Full Stack Developer with experience in Next.js, React, MongoDB, and APIs.",
+    "Full Stack Developer building Web3 identity tools, real-time canvas editors, and production APIs with React, Next.js, Node.js, and Fabric.js.",
   keywords: [
     "Shiva Subramaniyam S",
     "React Developer",
     "Next.js Portfolio",
-    "Canvas Builder using FabricJS",
-    "Backend Developer",
+    "Web3 Developer",
+    "Fabric.js Canvas Editor",
+    "Full Stack Developer",
+    "SSI Self-Sovereign Identity",
   ],
   authors: [{ name: "Shiva Subramaniyam S" }],
   creator: "Shiva Subramaniyam S",
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shiva Subramaniyam | Full Stack Developer",
     description:
-      "Explore my portfolio, projects, and real-world full-stack applications.",
+      "Web3 identity tools, real-time canvas editors, and production APIs — built with React, Next.js, Node.js, and Fabric.js.",
     url: `${siteUrl}/`,
     siteName: "Shiva Portfolio",
     locale: "en_US",
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shiva Subramaniyam Portfolio",
     description:
-      "Frontend Developer Portfolio with React, Next.js, and Backend Projects",
+      "Web3 developer building identity tools, canvas editors, and full-stack apps with React, Next.js, and Node.js.",
   },
 };
 
@@ -62,8 +61,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} antialiased `}>
-        <Provider>{children}</Provider>
+      <body className={`${manrope.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

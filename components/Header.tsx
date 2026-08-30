@@ -1,24 +1,24 @@
 "use client";
-import {
-  Flex,
-  Box,
-  Link as ChakraLink,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import NextLink from "next/link";
-import { useColorModeValue, ColorModeButton } from "./ui/color-mode";
 import React, { useEffect, useState, useRef } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import WeatherAPI from "@/components/WeatherAPI";
+
+const navLinks = [
+  { label: "Projects", href: "#Project" },
+  { label: "Skills", href: "#Skills" },
+  { label: "Resume", href: "#Resume" },
+  { label: "Playground", href: "#Playground" },
+];
 
 export default function Header() {
   const [visitorCount, setVisitorCount] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const hasFetched = useRef(false);
 
   useEffect(() => {
     const fetchVisitorCount = async () => {
       if (hasFetched.current) return;
       hasFetched.current = true;
-
       try {
         const res = await fetch("/api/visitor");
         const data = await res.json();
@@ -30,138 +30,50 @@ export default function Header() {
     fetchVisitorCount();
   }, []);
 
-  const detailBackground = useColorModeValue("#a9a9b31f", "#1a1a2eB3");
-  const responsiveFontSize = useBreakpointValue({
-    base: "12px",
-    sm: "14px",
-    md: "16px",
-    lg: "18px",
-  });
-  const navDisplay = useBreakpointValue({ base: "flex", md: "flex" });
-  const navGap = useBreakpointValue({ base: 2, md: 5 });
-  const paddingX = useBreakpointValue({ base: "16px", md: "24px" });
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      <section id="Home">
-        <Box display="flex" flexDir={{ base: "column", md: "row" }} gap="16px">
-          {" "}
-          <Box
-            width={{ base: "100%", md: "65%" }}
-            bg={detailBackground}
-            display="flex"
-            flexDir="row"
-            alignItems="center"
-            justifyContent="space-between"
-            paddingX={paddingX}
-            paddingY="10px"
-            borderRadius="12px"
-            overflowX={{ base: "auto", md: "visible" }}
-            whiteSpace={{ base: "nowrap", md: "normal" }}
-          >
-            {/* Left side navigation */}
-            <Box as="nav" aria-label="Primary">
-              <Flex
-                className="scrollx"
-                gap={navGap}
-                flexDir="row"
-                display={navDisplay}
-                width={{ base: "max-content", md: "auto" }}
-                // overflowX="auto"
-                alignItems="center"
-                whiteSpace="nowrap"
-              >
-                <ChakraLink
-                  as={NextLink}
-                  href="#"
-                  // _hover={{ border: "none" }}
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
+    <section id="Home">
+      <div className="flex flex-col gap-4 md:flex-row">
+        {/* Main Navigation */}
+        <div
+          className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 md:w-[65%] ${
+            scrolled ? "bg-card/80 shadow-lg backdrop-blur-md" : "bg-card"
+          }`}
+        >
+          <nav aria-label="Primary" className="flex-1">
+            <div className="scrollx flex items-center gap-4 md:gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="whitespace-nowrap text-sm font-medium transition-colors hover:text-primary md:text-base"
                 >
-                  Home
-                </ChakraLink>
-                <ChakraLink
-                  as={NextLink}
-                  href="#Skills"
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  Skills
-                </ChakraLink>
-                <ChakraLink
-                  as={NextLink}
-                  href="#Project"
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  Project
-                </ChakraLink>
-                <ChakraLink
-                  as={NextLink}
-                  href="#edu"
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  Education
-                </ChakraLink>
-                <ChakraLink
-                  as={NextLink}
-                  href="#Resume"
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  Resume
-                </ChakraLink>
-                <ChakraLink
-                  as={NextLink}
-                  href="#Cover_Letter"
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  CoverLetter
-                </ChakraLink>
-                <ChakraLink
-                  // as={NextLink}
-                  fontSize={responsiveFontSize}
-                  className="heading"
-                  whiteSpace="normal"
-                >
-                  Visitors:{visitorCount}
-                </ChakraLink>{" "}
-                <Box className="theme_button">
-                  {" "}
-                  <ColorModeButton />
-                </Box>
-              </Flex>
-            </Box>{" "}
-          </Box>{" "}
-          <Box
-            width={{ base: "100", md: "35%" }}
-            bg={detailBackground}
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            paddingX={paddingX}
-            paddingY="10px"
-            borderRadius="12px"
-            overflowX={{ base: "auto", md: "visible" }}
-            whiteSpace={{ base: "nowrap", md: "normal" }}
-            onClick={() =>
-              (window.location.href =
-                "https://weatherappshiva-8mwcjawfx-shivasubramaniyams-projects.vercel.app/")
-            }
-            cursor="pointer"
-          >
-            <WeatherAPI />
-          </Box>
-        </Box>
-      </section>
-    </>
+                  {link.label}
+                </a>
+              ))}
+              <span className="whitespace-nowrap text-sm text-muted-foreground">
+                Visitors: {visitorCount}
+              </span>
+            </div>
+          </nav>
+          <ThemeToggle />
+        </div>
+
+        {/* Weather Widget */}
+        <a
+          href="https://weatherappshiva-8mwcjawfx-shivasubramaniyams-projects.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center rounded-2xl bg-card p-3 transition-all hover:bg-card/80 hover:shadow-md md:w-[35%]"
+        >
+          <WeatherAPI />
+        </a>
+      </div>
+    </section>
   );
 }

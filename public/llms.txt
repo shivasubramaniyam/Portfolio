@@ -1,18 +1,35 @@
-# Shiva Subramaniyam Portfolio
+# Shiva Subramaniyam — Full Stack Developer & Web3 Builder
 
-Frontend Developer specializing in:
-- React
-- Next.js
-- Node.js
-- Fabric.js
+I build Web3 identity tools, real-time canvas editors, and production APIs. My focus is on solving real problems with modern web technologies.
 
-Important Pages:
-https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
-https://weatherappshiva-kk1dhtf3h-shivasubramaniyams-projects.vercel.app/
-https://github.com/shivasubramaniyam/E-commerce
+## Key Projects
 
-GitHub:
-https://github.com/shivasubramaniyam
+### SSI Platform (TrustGrid)
+Self-sovereign identity platform with reusable digital credential templates. Built the template preview library for enterprise SSI integration.
 
-LinkedIn:
-https://linkedin.com/in/shiva-subramaniyam-s
+### Custom Canvas Editor (Fabric.js)
+Dynamic browser-based design tool with drag-and-drop, layer management, and export — all client-side. Built with Fabric.js and React.
+
+### E-Commerce Backend API
+Production-ready Node.js API with JWT auth, PostgreSQL + Prisma ORM, role-based access control, product management, and order flow.
+
+### SynQ Social
+Decentralized social network platform for privacy-first content sharing. Built automation pipelines for content verification.
+
+## Tech Stack
+
+- **Frontend:** React, Next.js, TypeScript, Fabric.js, Tailwind CSS, Shadcn UI
+- **Backend:** Node.js, Express, PostgreSQL, Prisma, MongoDB, JWT
+- **Web3:** IPFS, WebRTC, Self-Sovereign Identity
+- **Tools:** Git, Figma, Postman, Puppeteer, Vercel
+
+## Important Pages
+
+- Portfolio: https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
+- Weather App: https://weatherappshiva-8mwcjawfx-shivasubramaniyams-projects.vercel.app/
+- E-Commerce API: https://github.com/shivasubramaniyam/E-commerce
+
+## Links
+
+- GitHub: https://github.com/shivasubramaniyam
+- LinkedIn: https://linkedin.com/in/shiva-subramaniyam-s

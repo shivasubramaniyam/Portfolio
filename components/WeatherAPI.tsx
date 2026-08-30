@@ -1,14 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Box, Flex, Text, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import Lottie from "lottie-react";
-
 
 import sunny from "@/public/lottie/Sunny.json";
 import cloudy from "@/public/lottie/Clouds.json";
 import rainy from "@/public/lottie/rainy.json";
 import storm from "@/public/lottie/storm.json";
-
 
 interface WeatherData {
   name: string;
@@ -21,18 +18,10 @@ interface WeatherData {
   };
 }
 
-
 export default function WeatherAPI() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const responsiveFontSize = useBreakpointValue({
-    base: "12px",
-    sm: "14px",
-    md: "16px",
-    lg: "18px",
-  });
 
   useEffect(() => {
     const fetchWeather = async (lat: number, lon: number) => {
@@ -64,29 +53,27 @@ export default function WeatherAPI() {
           fetchWeather(latitude, longitude);
         },
         () => {
-          setError("Location permission denied. Showing default location.");
-          fetchWeather(12.9716, 77.5946); 
+          // silently fallback to Bangalore
+          fetchWeather(12.9716, 77.5946);
         }
       );
     } else {
-      setError("Geolocation not supported by your browser.");
+      // silently fallback to Bangalore
       fetchWeather(12.9716, 77.5946);
     }
   }, []);
 
-  if (loading)
+  if (loading) {
     return (
-      <Flex justify="center" align="center" p={4}>
-        <Spinner size="lg" color="blue.400" />
-      </Flex>
+      <div className="flex items-center justify-center p-4">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+      </div>
     );
+  }
 
-  if (error && !weather)
-    return (
-      <Text color="red.400" textAlign="center">
-        {error}
-      </Text>
-    );
+  if (error && !weather) {
+    return <p className="text-center text-sm text-destructive">{error}</p>;
+  }
 
   if (!weather) return null;
 
@@ -99,20 +86,16 @@ export default function WeatherAPI() {
     animation = storm;
 
   return (
-    <Box p={2} borderRadius="12px" className="heading" maxW="sm" mx="auto">
-      <Flex justify="space-between" align="center" gap="8px">
-        <Box w="50px" h="50px" bg="#7773732d" borderRadius="full">
-          <Lottie animationData={animation} loop autoplay />
-        </Box>
-        <Box>
-          <Text fontSize={responsiveFontSize} fontWeight="bold">
-            {weather.name}
-          </Text>
-          <Text fontSize={{ base: "xs", md: "sm" }} mt={1}>
-            {weather.main.temp}°C - {weather.weather[0].description}
-          </Text>
-        </Box>
-      </Flex>
-    </Box>
+    <div className="flex items-center gap-3 rounded-xl p-2">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+        <Lottie animationData={animation} loop autoplay className="h-10 w-10" />
+      </div>
+      <div>
+        <p className="text-sm font-bold">{weather.name}</p>
+        <p className="text-xs text-muted-foreground">
+          {weather.main.temp}°C - {weather.weather[0].description}
+        </p>
+      </div>
+    </div>
   );
 }
