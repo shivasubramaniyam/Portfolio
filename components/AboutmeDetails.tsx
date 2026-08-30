@@ -1,315 +1,161 @@
 "use client";
-import { Box, Text, Flex, Tag, Heading } from "@chakra-ui/react";
-import { useColorModeValue } from "./ui/color-mode";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
 export default function AboutmeDetails() {
-  const detailBackground = useColorModeValue("#a9a9b31f", "#1a1a2eB3");
-  const tagBg = useColorModeValue("#bccfe8ff", "#2d2d44");
-  const textColor = useColorModeValue("#000", "#fff");
   return (
-    <>
-      <Flex
-        w="100%"
-        display="flex"
-        gap={{ base: "12px", md: "16px" }}
-        justifyContent={{ base: "center", md: "space-between" }}
-        direction={{ base: "column", md: "row" }}
-      >
-        {" "}
-        <Box
-          borderRadius="12px"
-          boxShadow="0px 4px 20px rgba(149, 153, 192, 0.05)"
-          p="24px"
-          display="flex"
-          gap="16px"
-          background={detailBackground}
-          width={{ base: "100%", md: "65%" }}
+    <div className="flex w-full flex-col gap-3 md:flex-row md:justify-between md:items-stretch">
+      {/* Main Bio Card */}
+      <Card className="flex w-full flex-col gap-4 p-6 md:w-[65%] md:flex-row md:items-center">
+        {/* Profile Image */}
+        <div className="relative mx-auto h-32 w-32 flex-shrink-0 overflow-hidden rounded-full shadow-lg md:mx-0 md:h-36 md:w-36">
+          <Image
+            src="/images/IMG_72611.JPG"
+            alt="Shiva Subramaniyam profile picture"
+            fill
+            priority
+            sizes="144px"
+            className="object-cover"
+          />
+        </div>
+
+        {/* About Text */}
+        <div className="flex-1 text-center md:text-left">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            About Me
+          </p>
+          <h1 className="mb-2 text-2xl font-bold md:text-3xl">
+            Shiva Subramaniyam S — Full Stack Developer
+          </h1>
+          <p className="mb-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            I build <b className="text-foreground">Web3 identity tools</b> and{" "}
+            <b className="text-foreground">real-time systems</b> that users
+            actually touch. From{" "}
+            <b className="text-foreground">self-sovereign identity platforms</b>{" "}
+            to <b className="text-foreground">custom canvas editors</b>, I focus
+            on solving real problems with React, Next.js, and decentralized web
+            technologies.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+            <Badge variant="secondary" className="rounded-full px-3 py-1">
+              Web3 & SSI
+            </Badge>
+            <Badge variant="secondary" className="rounded-full px-3 py-1">
+              Full Stack Developer
+            </Badge>
+            <Badge variant="secondary" className="rounded-full px-3 py-1">
+              Canvas & Real-time Systems
+            </Badge>
+          </div>
+        </div>
+      </Card>
+
+      {/* Details Sidebar */}
+      <div className="flex w-full flex-col md:w-[35%]">
+        {/* <p className="mb-3 px-1 text-sm font-bold"></p> */}
+
+        {/* Shiva / Personal Details Card */}
+        <div className="info-card flex flex-1 items-center gap-4 rounded-[24px] border border-white/20 bg-[#5A63D8] p-4 dark:bg-[#6B7CFA]">
+          <div className="relative h-[50px] w-[50px] flex-shrink-0 overflow-hidden rounded-full">
+            <Image
+              src="/images/IMG_72611.JPG"
+              alt="Shiva"
+              fill
+              loading="lazy"
+              sizes="50px"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex-1 text-foreground">
+            <p className="text-sm font-semibold leading-5 md:text-base">
+              Shiva
+            </p>
+            <p className="text-xs leading-6 text-foreground/70">
+              Personal Details
+            </p>
+            <div className="details">
+              <p className="text-[10px] md:text-xs">
+                mailto:shivasubramaniyam54@gmail.com
+                <br />
+                ph no: 797 5271 494
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* GitHub Card */}
+        <div
+          className="info-card flex flex-1 cursor-pointer items-center gap-4 rounded-[24px] border border-white/20 bg-[#A2B0FF] p-4 -mt-5 dark:bg-[#3F46A1]"
+          onClick={() =>
+            window.open(
+              "https://github.com/shivasubramaniyam",
+              "_blank",
+              "noopener,noreferrer",
+            )
+          }
         >
-          <Flex
-            align="center"
-            direction={{ base: "column", md: "row" }}
-            gap="16px"
-          >
-            {/* Profile Image */}
-            <Box
-              width={{ base: "120px", md: "140px" }}
-              height={{ base: "120px", md: "140px" }}
-              borderRadius="full"
-              overflow="hidden"
-              boxShadow="0 4px 12px rgba(0,0,0,0.1)"
-              flexShrink={0}
-              position="relative"
-            >
-              <Image
-                src="/images/IMG_72611.JPG"
-                alt="Shiva Subramaniyam profile picture"
-                fill
-                priority
-                sizes="140px"
-                style={{ objectFit: "cover", borderRadius: "9999px" }}
-              />
-            </Box>
+          <div className="relative h-[50px] w-[50px] flex-shrink-0 overflow-hidden rounded-full">
+            <Image
+              src="/images/github.svg"
+              alt="GitHub profile"
+              fill
+              loading="lazy"
+              sizes="50px"
+              className="object-cover rounded-full"
+            />
+          </div>
+          <div className="flex-1 text-foreground">
+            <p className="text-sm font-semibold leading-5 md:text-base">
+              GitHub
+            </p>
+            <p className="text-xs leading-6 text-foreground/70">
+              Explore GitHub
+            </p>
+            <div className="details">
+              <p className="text-[10px] md:text-xs">
+                https://github.com/shivasubramaniyam
+              </p>
+            </div>
+          </div>
+        </div>
 
-            {/* About Text */}
-            <Box flex={1}>
-              <Text
-                fontSize="xs"
-                fontWeight="semibold"
-                letterSpacing="0.12em"
-                textTransform="uppercase"
-                color={textColor}
-                opacity={0.6}
-                mb="4px"
-                textAlign={{ base: "center", md: "left" }}
-              >
-                About Me
-              </Text>
-
-              <Heading
-                as="h1"
-                fontSize={{ base: "2xl", md: "3xl" }}
-                fontWeight="bold"
-                mb="8px"
-                textAlign={{ base: "center", md: "left" }}
-              >
-                Shiva Subramaniyam — Full Stack Developer
-              </Heading>
-
-              <Text
-                fontSize="md"
-                lineHeight="1.7"
-                textAlign={{ base: "center", md: "left" }}
-                mb="16px"
-              >
-                Hi, I’m <b>Shiva</b>, a developer who loves turning ideas into
-                interactive digital experiences. I enjoy experimenting with{" "}
-                <b>React</b> ,<b>Next.js</b>, and{" "}
-                <b>decentralized web technologies</b>. When I’m not coding, I
-                explore new design trends, tweak my personal projects, or learn
-                something fresh in the world of <b>AI</b> and <b>Automation</b>{" "}
-                .
-              </Text>
-
-              {/* Quick Facts / Tags */}
-              <Flex
-                wrap="wrap"
-                gap="8px"
-                justify={{ base: "center", md: "flex-start" }}
-              >
-                <Tag.Root
-                  bg={tagBg}
-                  className="tag_text"
-                  borderRadius="full"
-                  px="12px"
-                  py="6px"
-                >
-                  <Tag.Label> Learning Web3</Tag.Label>
-                </Tag.Root>
-                <Tag.Root
-                  bg={tagBg}
-                  className="tag_text"
-                  borderRadius="full"
-                  px="12px"
-                  py="6px"
-                >
-                  <Tag.Label> Full Stack Developer</Tag.Label>
-                </Tag.Root>
-                <Tag.Root
-                  bg={tagBg}
-                  className="tag_text"
-                  borderRadius="full"
-                  px="12px"
-                  py="6px"
-                >
-                  <Tag.Label> Music & Fitness Enthusiast</Tag.Label>
-                </Tag.Root>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
-        <Box
-          width={{ base: "100%", md: "35%" }}
-          h="auto"
-          borderRadius="12px"
-          boxShadow="0px 4px 20px rgba(149, 153, 192, 0.05)"
-          p="24px"
-          display="flex"
-          flexDirection="column"
-          gap="16px"
-          background={detailBackground}
+        {/* LinkedIn Card */}
+        <div
+          className="info-card flex flex-1 cursor-pointer items-center gap-4 rounded-[24px] border border-white/20 bg-white p-4 -mt-5 dark:bg-[#0F123D]"
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/shiva-subramaniyam-s",
+              "_blank",
+              "noopener,noreferrer",
+            )
+          }
         >
-          <Flex align="center">
-            <Text flex={1} fontWeight="bold" textAlign={"left"} ml="15px">
-              Details
-            </Text>
-          </Flex>
-          <Box>
-            <Flex
-              className="info-card"
-              align="center"
-              width="100%"
-              bgColor={useColorModeValue("#5A63D8", "#6B7CFA")}
-              h={"100px"}
-              borderRadius={"24px"}
-              border={"1px solid rgba(255, 255, 255, 0.20)"}
-              padding="16px"
-              alignItems="center"
-              gap="16px"
-              flexShrink="0"
-            >
-              <Box
-                w={{ base: "40px", md: "50px" }}
-                h={{ base: "40px", md: "50px" }}
-                display="flex"
-                alignItems="center"
-                justifyContent={{ base: "left", md: "center" }}
-                position="relative"
-                borderRadius="full"
-              >
-                <Image
-                  src="/images/IMG_72611.JPG"
-                  alt="Shiva's Details"
-                  fill
-                  loading="lazy"
-                  sizes="50px"
-                  style={{ objectFit: "cover", borderRadius: "9999px" }}
-                />
-              </Box>
-              <Box flex={1} color={textColor}>
-                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
-                  {" "}
-                  Shiva
-                </Text>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
-                  {" "}
-                  Personal Details
-                </Text>
-                {/* Hidden details */}
-                <Box className="details">
-                  <Text fontSize={{ base: "10px", md: "12px" }}>
-                    mailto:shivasubramaniyam54@gmail.com
-                    <br />
-                    ph no:797 5271 494
-                  </Text>
-                </Box>
-              </Box>
-            </Flex>{" "}
-            <Flex
-              className="info-card"
-              width="100%"
-              align="center"
-              bgColor={useColorModeValue("#A2B0FF", "#3F46A1")}
-              h="100px"
-              borderRadius="24px"
-              border="1px solid rgba(255, 255, 255, 0.20)"
-              padding="16px"
-              alignItems="center"
-              gap="16px"
-              flexShrink="0"
-              marginTop="-20px"
-              onClick={() =>
-                window.open(
-                  "https://github.com/shivasubramaniyam",
-                  "_blank",
-                  "noopener,noreferrer",
-                )
-              }
-            >
-              <Box
-                w={{ base: "40px", md: "50px" }}
-                h={{ base: "40px", md: "50px" }}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                borderRadius="full"
-                position="relative"
-              >
-                <Image
-                  src="/images/github.svg"
-                  alt="Shiva's GitHub profile"
-                  fill
-                  loading="lazy"
-                  sizes="50px"
-                  style={{ objectFit: "cover", borderRadius: "9999px" }}
-                />
-              </Box>
-              <Box flex={1} color={textColor}>
-                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
-                  GitHub
-                </Text>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
-                  Explore Github{" "}
-                </Text>
-                {/* Hidden details */}
-                <Box className="details">
-                  <Text fontSize={{ base: "10px", md: "12px" }}>
-                    {" "}
-                    https://github.com/shivasubramaniyam{" "}
-                  </Text>
-                </Box>
-              </Box>
-            </Flex>
-            <Flex
-              className="info-card"
-              align="center"
-              width="100%"
-              mt="8px"
-              bgColor={useColorModeValue("#fff", "	#0F123D")}
-              h={"100px"}
-              borderRadius={"24px"}
-              border={"1px solid rgba(255, 255, 255, 0.20)"}
-              padding="16px"
-              alignItems="center"
-              gap="16px"
-              flexShrink="0"
-              marginTop={"-20px"}
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/shiva-subramaniyam-s",
-                  "_blank",
-                  "noopener,noreferrer",
-                )
-              }
-            >
-              <Box
-                w={{ base: "40px", md: "50px" }}
-                h={{ base: "40px", md: "50px" }}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                borderRadius={"full"}
-              >
-                <Image
-                  src="/images/linkedin.svg"
-                  alt="Shiva's LinkedIn profile"
-                  fill
-                  loading="lazy"
-                  sizes="50px"
-                  style={{ objectFit: "cover", borderRadius: "9999px" }}
-                />
-              </Box>
-              <Box flex={1} color={textColor}>
-                <Text fontSize={{ base: "16px", md: "18px" }} lineHeight="20px">
-                  {" "}
-                  LinkedIn
-                </Text>
-                <Text fontSize={{ base: "12px", md: "14px" }} lineHeight="24px">
-                  {" "}
-                  Explore LinkedIn
-                </Text>
-                {/* Hidden details */}
-                <Box className="details">
-                  <Text fontSize={{ base: "10px", md: "12px" }}>
-                    https://www.linkedin.com/in/shiva-subramaniyam-s
-                  </Text>
-                </Box>
-              </Box>
-            </Flex>
-          </Box>
-        </Box>
-      </Flex>
-    </>
+          <div className="relative h-[50px] w-[50px] flex-shrink-0 overflow-hidden rounded-full">
+            <Image
+              src="/images/linkedin.svg"
+              alt="LinkedIn profile"
+              fill
+              loading="lazy"
+              sizes="50px"
+              className="object-cover rounded-full"
+            />
+          </div>
+          <div className="flex-1 text-foreground">
+            <p className="text-sm font-semibold leading-5 md:text-base">
+              LinkedIn
+            </p>
+            <p className="text-xs leading-6 text-foreground/70">
+              Explore LinkedIn
+            </p>
+            <div className="details">
+              <p className="text-[10px] md:text-xs">
+                https://www.linkedin.com/in/shiva-subramaniyam-s
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

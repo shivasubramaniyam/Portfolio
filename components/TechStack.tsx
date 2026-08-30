@@ -1,101 +1,86 @@
 "use client";
-import { Box, Heading, Text, SimpleGrid, Tag, VStack } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useColorModeValue } from "@/components/ui/color-mode";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "motion/react";
+
+const skillCategories = [
+  {
+    category: "Core — Daily Use",
+    items: ["React", "Next.js", "TypeScript", "Node.js", "Fabric.js"],
+    accent: "bg-primary/10 text-primary border-primary/20",
+  },
+  {
+    category: "Built With",
+    items: ["MongoDB", "PostgreSQL", "Prisma", "Chakra UI", "Shadcn UI", "Tailwind CSS"],
+    accent: "bg-accent/10 text-accent border-accent/20",
+  },
+  {
+    category: "Tools & Workflow",
+    items: ["Git", "VS Code", "Figma", "Postman", "Puppeteer", "Vercel"],
+    accent: "bg-secondary text-secondary-foreground border-border",
+  },
+  {
+    category: "Exploring",
+    items: ["Web3 / SSI", "IPFS", "WebRTC", "AI/ML Integration"],
+    accent: "bg-chart-4/10 text-chart-4 border-chart-4/20",
+  },
+];
+
+const slideInVariants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    x: i % 2 === 0 ? -60 : 60,
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.15,
+      type: "spring" as const,
+      stiffness: 80,
+      damping: 15,
+    },
+  }),
+};
 
 export default function Skills() {
-  const textColor = useColorModeValue("#000", "#fff");
-  const tagBg = useColorModeValue("#bccfe8ff", "#2f2f5f");
-  const gridcolor = useColorModeValue("#fff", "#1a1a2eB3");
-
-  const skills = {
-    Frontend: ["ReactJS", "NextJS", "FabricJS", "Chakra UI", "Shadcn UI"],
-    "Automation Testing": ["Automation Testing", "App Testing", "API Testing"],
-    DApp: ["WebRTC", "IPFS"],
-    Tools: ["Git", "VS Code", "Figma", "Postman", "Puppeteer"],
-  };
-
-  const MotionVStack = motion.create(VStack);
-
-  // Variants for slide-in from left or right depending on index
-  const slideInVariants = {
-    hidden: (i: number) => ({
-      opacity: 0,
-      x: i % 2 === 0 ? -100 : 100, // even index: from left, odd index: from right
-    }),
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.3,
-        type: "spring" as const,
-        stiffness: 50,
-      },
-    }),
-  };
-
   return (
     <section id="Skills">
-      <Box
-        p={{ base: "16px", md: "24px" }}
-        borderRadius="12px"
-        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
-      >
-        <Heading
-          textAlign="center"
-          mb={{ base: "16px", md: "24px" }}
-          fontFamily="'GT Walsheim', sans-serif"
-          color={textColor}
-          fontSize={{ base: "xl", md: "2xl" }}
-        >
+      <div className="rounded-2xl bg-card p-4 md:p-6">
+        <h2 className="mb-4 text-center text-xl font-bold md:mb-6 md:text-2xl">
           Skills & Tech Stack
-        </Heading>
+        </h2>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 4, md: 6 }}>
-          {Object.entries(skills).map(([category, items], index) => (
-            <MotionVStack
-              key={category}
-              align="start"
-              gap={{ base: 3, md: 4 }}
-              bg={gridcolor}
-              p={{ base: 4, md: 6 }}
-              borderRadius="12px"
-              shadow="md"
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          {skillCategories.map((cat, index) => (
+            <motion.div
+              key={cat.category}
               custom={index}
               variants={slideInVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
-              <Text
-                fontWeight="bold"
-                fontSize={{ base: "md", md: "lg" }}
-                color={textColor}
-                fontFamily="'GT Walsheim', sans-serif"
-              >
-                {category}
-              </Text>
-              <Box display="flex" flexWrap="wrap" gap={{ base: 1, md: 2 }}>
-                {items.map((skill) => (
-                  <Tag.Root
-                    key={skill}
-                    className="tag_text"
-                    bg={tagBg}
-                    color={textColor}
-                    size="lg"
-                    borderRadius="24px"
-                    px={{ base: 3, md: 4 }}
-                    py={{ base: 1, md: 1 }}
-                    fontSize={{ base: "xs", md: "sm" }}
-                  >
-                    {skill}
-                  </Tag.Root>
-                ))}
-              </Box>
-            </MotionVStack>
+              <Card className="h-full p-4 md:p-6">
+                <p className="mb-3 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                  {cat.category}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {cat.items.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="outline"
+                      className={`rounded-full px-3 py-1 text-xs ${cat.accent}`}
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
           ))}
-        </SimpleGrid>
-      </Box>
+        </div>
+      </div>
     </section>
   );
 }

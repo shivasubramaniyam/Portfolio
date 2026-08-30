@@ -1,10 +1,8 @@
 "use client";
 import { motion, useScroll } from "motion/react";
-import { useColorModeValue } from "@/components/ui/color-mode";
 
 export default function ScrollIndicator() {
   const { scrollYProgress } = useScroll();
-  const backgroundColor = useColorModeValue("#6366F1", "#9333EA");
 
   return (
     <motion.div
@@ -17,8 +15,8 @@ export default function ScrollIndicator() {
         right: 0,
         height: 5,
         originX: 0,
-        backgroundColor,
-        zIndex: 1,
+        backgroundColor: "hsl(243 75% 59%)",
+        zIndex: 50,
       }}
     />
   );

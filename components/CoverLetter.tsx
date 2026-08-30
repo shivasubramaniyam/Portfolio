@@ -1,82 +1,96 @@
 "use client";
 
-import { Box, Heading, Flex } from "@chakra-ui/react";
-import { motion, easeInOut } from "framer-motion";
+import { motion, easeInOut } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import * as React from "react";
-import { useColorModeValue } from "./ui/color-mode";
-
-const MotionBox = motion.create(Box);
-const MotionHeading = motion.create(Heading);
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 export default function CoverLetter() {
-  const bgGradient = useColorModeValue(
-    "linear(to-br, #f8f9fa, #e9ecef)",
-    "linear(to-br, gray.800, gray.900)"
-  );
-
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.2,
   });
 
   return (
     <section id="Cover_Letter">
-      <Flex
-        direction="column"
-        align="center"
-        justify="center"
-        p={{ base: 6, md: 12 }}
-        w="100%"
-        minH="100vh"
-        bgGradient={bgGradient}
-        textAlign="center"
-        bg={useColorModeValue("#a9a9b31f", "#1a1a2eB3")}
-        borderRadius="12px"
-      >
-        <MotionHeading
-          as="h2"
-          mb={{ base: 12, md: 24 }}
-          textAlign="center"
-          fontFamily="'GT Walsheim', sans-serif"
-          initial={{ opacity: 0, y: -30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-          transition={{ duration: 0.7, ease: easeInOut }}
-          fontWeight="bold"
-          fontSize={{ base: "xl", md: "3xl" }}
-        >
-          Cover Letter
-        </MotionHeading>
+      <div className="rounded-2xl bg-card p-4 md:p-6">
+        <h2 className="mb-4 text-center text-xl font-bold md:mb-6 md:text-2xl">
+          Let&apos;s Connect
+        </h2>
 
-        <MotionBox
+        <motion.div
           ref={ref}
-          w={{ base: "90%", md: "100%" }}
-          maxW="900px"
-          h={{ base: "50vh", md: "80vh" }}
-          borderRadius="2xl"
-          overflow="hidden"
-          boxShadow="0px 12px 35px rgba(0,0,0,0.18)"
-          bg={useColorModeValue("white", "gray.700")}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={
-            inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
-          }
-          transition={{ duration: 0.8, ease: easeInOut }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: easeInOut }}
+          className="mx-auto max-w-2xl"
         >
-          <iframe
-            src="/shiva_coversheet_new.pdf"
-            style={{
-              width: "100%",
-              height: "100%",
-              border: "none",
-              backgroundColor: "transparent",
-            }}
-            title="CoverSheet Preview"
-            loading="lazy"
-            aria-label="CoverLetter Preview PDF"
-          />
-        </MotionBox>
-      </Flex>
+          <Card className="p-6 text-center md:p-10">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+              Open to opportunities
+            </p>
+            <h3 className="mb-4 text-lg font-bold md:text-xl">
+              Looking for a developer who builds real things?
+            </h3>
+            <p className="mb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+              I&apos;m Shiva — I build Web3 identity tools, real-time canvas
+              editors, and full-stack APIs. Currently exploring the intersection
+              of decentralized systems and modern frontend architecture. Always
+              open to interesting problems and collaborative projects.
+            </p>
+
+            <div className="mb-6 flex flex-wrap justify-center gap-3">
+              <Button
+                variant="outline"
+                className="gap-2"
+                onClick={() =>
+                  window.open("https://github.com/shivasubramaniyam", "_blank")
+                }
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+              </Button>
+              <Button
+                variant="outline"
+                className="gap-2"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/shiva-subramaniyam-s",
+                    "_blank"
+                  )
+                }
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </Button>
+              <Button
+                variant="outline"
+                className="gap-2"
+                onClick={() =>
+                  (window.location.href =
+                    "mailto:shivasubramaniyam54@gmail.com")
+                }
+              >
+                <Mail className="h-4 w-4" />
+                Email
+              </Button>
+            </div>
+
+            <Separator className="mb-6" />
+
+            <Button
+              variant="default"
+              className="gap-2"
+              onClick={() => window.open("/shiva_coversheet_new.pdf", "_blank")}
+            >
+              <FileText className="h-4 w-4" />
+              Download Cover Letter
+            </Button>
+          </Card>
+        </motion.div>
+      </div>
     </section>
   );
 }
