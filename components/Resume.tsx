@@ -8,15 +8,15 @@ import { Download, Code, Server, Globe } from "lucide-react";
 
 const experience = [
   {
-    period: "2024 — Present",
-    role: "Frontend Developer",
+    period: "2025 — Present",
+    role: "Associate Software Engineer",
     company: "TrustGrid",
     description:
-      "Building Web3 identity tools — SSI template platforms, social networks, and logistics dashboards using React, Next.js, and Fabric.js.",
+      "Software Engineer at TrustGrid building Web3 identity products: SSI (Self-Sovereign Identity) platforms on Hyperledger Indy, Digital Credentials, and PaaS dashboards, using React, Next.js, Fabric.js, and Keycloak for secure authentication and role-based access. I maintain 4 production dashboards and work with architects, backend engineers, and designers to deliver scalable, user-centric solutions.",
     icon: Code,
   },
   {
-    period: "2023 — 2024",
+    period: "2023 — 2025",
     role: "Full Stack Developer (Projects)",
     company: "Personal & Academic",
     description:
@@ -47,8 +47,8 @@ export default function Resume() {
         </h2>
 
         <p className="mx-auto mb-6 max-w-xl text-center text-sm text-muted-foreground md:mb-8 md:text-base">
-          Here&apos;s a timeline of my experience and key contributions. Download the
-          full resume for complete details.
+          Here&apos;s a timeline of my experience and key contributions.
+          Download the full resume for complete details.
         </p>
 
         {/* Timeline */}
@@ -63,8 +63,14 @@ export default function Resume() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ delay: index * 0.2, duration: 0.5, ease: easeInOut }}
+                  animate={
+                    inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
+                  transition={{
+                    delay: index * 0.2,
+                    duration: 0.5,
+                    ease: easeInOut,
+                  }}
                   className="relative pl-14 md:pl-16"
                 >
                   {/* Icon dot */}
@@ -76,7 +82,9 @@ export default function Resume() {
                     <p className="mb-1 text-[10px] font-medium uppercase tracking-wider text-primary md:text-xs">
                       {exp.period}
                     </p>
-                    <h3 className="text-sm font-bold md:text-base">{exp.role}</h3>
+                    <h3 className="text-sm font-bold md:text-base">
+                      {exp.role}
+                    </h3>
                     <p className="mb-2 text-xs text-muted-foreground md:text-sm">
                       {exp.company}
                     </p>

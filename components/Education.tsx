@@ -11,7 +11,8 @@ const educationData = [
     year: "2025",
     status: "Completed",
     icon: GraduationCap,
-    coursework: "Focus on software engineering, web technologies, and AI applications.",
+    coursework:
+      "Focus on software engineering, web technologies, and AI applications.",
   },
   {
     title: "Cloud Essentials",
@@ -21,22 +22,22 @@ const educationData = [
     icon: Award,
     coursework: "Cloud architecture fundamentals and deployment strategies.",
   },
-  {
-    title: "Power BI",
-    college: "Udemy",
-    year: "2024",
-    status: "In Progress",
-    icon: BookOpen,
-    coursework: "Data visualization and business intelligence.",
-  },
-  {
-    title: "React JS",
-    college: "Infosys Springboard",
-    year: "2023",
-    status: "Completed",
-    icon: BookOpen,
-    coursework: "Component architecture, hooks, and state management.",
-  },
+  // {
+  //   title: "Power BI",
+  //   college: "Udemy",
+  //   year: "2024",
+  //   status: "In Progress",
+  //   icon: BookOpen,
+  //   coursework: "Data visualization and business intelligence.",
+  // },
+  // {
+  //   title: "React JS",
+  //   college: "Infosys Springboard",
+  //   year: "2023",
+  //   status: "Completed",
+  //   icon: BookOpen,
+  //   coursework: "Component architecture, hooks, and state management.",
+  // },
 ];
 
 const fadeInUp = {
@@ -79,7 +80,9 @@ export default function Education() {
                           {edu.title}
                         </h3>
                         <Badge
-                          variant={edu.status === "Completed" ? "default" : "secondary"}
+                          variant={
+                            edu.status === "Completed" ? "default" : "secondary"
+                          }
                           className="w-fit rounded-full text-[10px]"
                         >
                           {edu.status}

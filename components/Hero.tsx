@@ -11,7 +11,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="max-w-3xl"
+        className="max-w-4xl"
       >
         {/* Eyebrow */}
         <motion.p
@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mb-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl md:leading-tight"
+          className="font-unbounded mb-4 whitespace-nowrap text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
         >
           Shiva Subramaniyam S
         </motion.h1>
@@ -59,7 +59,8 @@ export default function Hero() {
           transition={{ delay: 0.55, duration: 0.5 }}
           className="mb-8 text-sm text-muted-foreground md:text-base"
         >
-          React · Next.js · Node.js · Fabric.js · PostgreSQL · Web3
+          React · Next.js · Node.js · Fabric.js · PostgreSQL · Web3 · Keycloak
+          (Auth)
         </motion.p>
 
         {/* CTAs */}

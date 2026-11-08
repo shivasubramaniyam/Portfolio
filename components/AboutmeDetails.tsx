@@ -26,7 +26,7 @@ export default function AboutmeDetails() {
             About Me
           </p>
           <h1 className="mb-2 text-2xl font-bold md:text-3xl">
-            Shiva Subramaniyam S — Full Stack Developer
+            <span className="font-unbounded">Shiva Subramaniyam S</span> — Full Stack Developer
           </h1>
           <p className="mb-4 text-sm leading-relaxed text-muted-foreground md:text-base">
             I build <b className="text-foreground">Web3 identity tools</b> and{" "}
@@ -46,6 +46,9 @@ export default function AboutmeDetails() {
             </Badge>
             <Badge variant="secondary" className="rounded-full px-3 py-1">
               Canvas & Real-time Systems
+            </Badge>
+            <Badge variant="secondary" className="rounded-full px-3 py-1">
+              Keycloak (Auth)
             </Badge>
           </div>
         </div>
@@ -68,7 +71,7 @@ export default function AboutmeDetails() {
             />
           </div>
           <div className="flex-1 text-foreground">
-            <p className="text-sm font-semibold leading-5 md:text-base">
+            <p className="font-unbounded text-sm font-bold leading-5 md:text-base">
               Shiva
             </p>
             <p className="text-xs leading-6 text-foreground/70">

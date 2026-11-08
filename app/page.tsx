@@ -32,6 +32,8 @@ const personSchema = {
     "TypeScript",
     "Web3",
     "SSI",
+    "WebAuthn",
+    "Passkeys",
   ],
 };
 
