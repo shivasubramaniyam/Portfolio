@@ -2,11 +2,21 @@
 
 import { motion, easeInOut } from "motion/react";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Code, Server, Globe } from "lucide-react";
+import { Download, Code, Server, Globe, Mic } from "lucide-react";
 
-const experience = [
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+  icon: typeof Code;
+  images?: { src: string; alt: string }[];
+}
+
+const experience: ExperienceItem[] = [
   {
     period: "2025 — Present",
     role: "Associate Software Engineer",
@@ -14,6 +24,21 @@ const experience = [
     description:
       "Software Engineer at TrustGrid building Web3 identity products: SSI (Self-Sovereign Identity) platforms on Hyperledger Indy, Digital Credentials, and PaaS dashboards, using React, Next.js, Fabric.js, and Keycloak for secure authentication and role-based access. I maintain 4 production dashboards and work with architects, backend engineers, and designers to deliver scalable, user-centric solutions.",
     icon: Code,
+  },
+  {
+    period: "NOVEMBER 2025",
+    role: "Product Promotion",
+    company: "Bengaluru Tech Summit (BTS)",
+    description:
+      "Represented TrustGrid at Bengaluru Tech Summit, showcasing and promoting its product (SSI, SynQ Social, dTAK) to technology professionals, industry leaders, founders, and delegates. Engaged with attendees at the TrustGrid booth, explaining product capabilities, demonstrating solutions, and encouraging discussions around technology adoption and collaboration.",
+    icon: Mic,
+    images: [
+      { src: "/images/bts.jpeg", alt: "Bengaluru Tech Summit Hosting" },
+      { src: "/images/booth.jpeg", alt: "BTS Event Presentation" },
+      { src: "/images/explain.jpeg", alt: "BTS Event Presentation" },
+
+      { src: "/images/team.jpeg", alt: "BTS Event Presentation" },
+    ],
   },
   {
     period: "2023 — 2025",
@@ -91,6 +116,27 @@ export default function Resume() {
                     <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
                       {exp.description}
                     </p>
+
+                    {/* Event Photo Gallery if present */}
+                    {exp.images && exp.images.length > 0 && (
+                      <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-3 pt-2">
+                        {exp.images.map((img, imgIdx) => (
+                          <div
+                            key={imgIdx}
+                            className="relative h-28 sm:h-36 w-full overflow-hidden rounded-lg bg-muted border border-border/60 group/img"
+                          >
+                            <Image
+                              src={img.src}
+                              alt={img.alt}
+                              fill
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, 25vw"
+                              className="object-cover transition-transform duration-300 group-hover/img:scale-105"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </Card>
                 </motion.div>
               );
