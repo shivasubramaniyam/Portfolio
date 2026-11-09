@@ -4,9 +4,10 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Projects", href: "#Project" },
-  { label: "Skills", href: "#Skills" },
-  { label: "Resume", href: "#Resume" },
   { label: "Playground", href: "#Playground" },
+  { label: "Experience", href: "#Resume" },
+  { label: "Skills", href: "#Skills" },
+  { label: "Contact", href: "#Cover_Letter" },
 ];
 
 export default function Header() {
@@ -42,18 +43,18 @@ export default function Header() {
           scrolled ? "bg-card/80 shadow-lg backdrop-blur-md" : "bg-card"
         }`}
       >
-        <nav aria-label="Primary" className="flex-1 min-w-0 mr-2">
-          <div className="scrollx flex items-center gap-3 sm:gap-4 md:gap-6 py-0.5">
+        <nav aria-label="Primary" className="flex-1">
+          <div className="scrollx flex items-center gap-4 md:gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="whitespace-nowrap text-xs sm:text-sm font-medium transition-colors hover:text-primary md:text-base"
+                className="whitespace-nowrap text-sm font-medium transition-colors hover:text-primary md:text-base"
               >
                 {link.label}
               </a>
             ))}
-            <span className="whitespace-nowrap text-xs sm:text-sm text-muted-foreground">
+            <span className="whitespace-nowrap text-sm text-muted-foreground">
               Visitors: {visitorCount}
             </span>
           </div>

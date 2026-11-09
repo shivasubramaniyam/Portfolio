@@ -142,16 +142,16 @@ export default function Playground() {
             <Badge variant="secondary" className="rounded-full text-[10px]">
               {current.tech}
             </Badge>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               {current.description}
             </p>
           </div>
 
           {/* Sub-app toggle & links when PunchOS is active */}
           {current.isDualApp && (
-            <div className="mt-1 flex flex-col gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs font-semibold text-muted-foreground">App:</span>
+            <div className="mt-1 flex flex-col gap-2.5 rounded-lg border border-border/60 bg-muted/30 p-2.5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground">App:</span>
                 <div className="inline-flex rounded-md bg-muted p-0.5">
                   {current.subApps?.map((sub) => {
                     const SubIcon = sub.icon;
@@ -160,14 +160,14 @@ export default function Playground() {
                       <button
                         key={sub.id}
                         onClick={() => setPunchSubApp(sub.id as "student" | "faculty")}
-                        className={`flex items-center gap-1.5 rounded px-2.5 py-1 text-xs font-medium transition-colors ${
+                        className={`flex items-center gap-1 sm:gap-1.5 rounded px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-medium transition-colors ${
                           isSubSelected
                             ? "bg-background text-foreground shadow-xs"
                             : "text-muted-foreground hover:text-foreground"
                         }`}
                       >
                         <SubIcon className="h-3 w-3" />
-                        {sub.label}
+                        <span className="whitespace-nowrap">{sub.label}</span>
                       </button>
                     );
                   })}
@@ -175,25 +175,25 @@ export default function Playground() {
               </div>
 
               {/* Live URLs */}
-              <div className="flex flex-wrap items-center gap-1.5 text-xs">
+              <div className="flex flex-wrap items-center gap-1.5 text-[11px] sm:text-xs">
                 <a
                   href="https://punch-os-qr-app.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[11px] text-primary hover:underline inline-flex items-center gap-0.5"
+                  className="font-mono text-[10px] sm:text-[11px] text-primary hover:underline inline-flex items-center gap-0.5 break-all"
                 >
                   punch-os-qr-app.vercel.app
-                  <ExternalLink className="h-2.5 w-2.5" />
+                  <ExternalLink className="h-2.5 w-2.5 shrink-0" />
                 </a>
-                <span className="text-muted-foreground/60">|</span>
+                <span className="text-muted-foreground/60 hidden sm:inline">|</span>
                 <a
                   href="https://punch-os-faculty-scanner.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[11px] text-primary hover:underline inline-flex items-center gap-0.5"
+                  className="font-mono text-[10px] sm:text-[11px] text-primary hover:underline inline-flex items-center gap-0.5 break-all"
                 >
                   Org: punch-os-faculty-scanner.vercel.app
-                  <ExternalLink className="h-2.5 w-2.5" />
+                  <ExternalLink className="h-2.5 w-2.5 shrink-0" />
                 </a>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function Playground() {
             src={currentSrc}
             title={`${current.label} Playground`}
             loading="lazy"
-            className="h-[500px] w-full border-0 md:h-[600px]"
+            className="h-[420px] w-full border-0 sm:h-[500px] md:h-[600px]"
             sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             allow="camera; microphone; publickey-credentials-get; publickey-credentials-create; clipboard-write"
           />

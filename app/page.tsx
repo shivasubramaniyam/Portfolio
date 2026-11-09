@@ -67,11 +67,11 @@ export default function Home() {
         <Header />
         <Hero />
         <AboutmeDetails />
-        <TechStack />
         <Projects />
         <Playground />
-        <Education />
         <Resume />
+        <TechStack />
+        <Education />
         <CoverLetter />
 
         {/* Footer */}

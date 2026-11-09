@@ -150,7 +150,7 @@ export default function Projects() {
                 </h3>
 
                 {/* Problem */}
-                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
                   <span className="font-semibold text-foreground">
                     Problem:{" "}
                   </span>
@@ -158,7 +158,7 @@ export default function Projects() {
                 </p>
 
                 {/* Role */}
-                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
                   <span className="font-semibold text-foreground">
                     My role:{" "}
                   </span>
@@ -179,51 +179,48 @@ export default function Projects() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-auto flex items-center gap-2 pt-2">
-                  {project.type === "private" ? (
-                    <>
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                  <div className="flex items-center gap-2">
+                    {project.type === "private" ? (
                       <Badge
                         variant="outline"
-                        className="border-destructive/30 text-destructive"
+                        className="border-destructive/30 text-destructive text-[10px]"
                       >
                         <Lock className="mr-1 h-3 w-3" />
                         Private
                       </Badge>
-                      <span className="text-[10px] text-muted-foreground">
-                        {project.company}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Badge
-                        variant="outline"
-                        className="border-green-500/30 text-green-500"
-                      >
-                        Public
-                      </Badge>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="h-7 gap-1 text-xs"
-                        onClick={() => window.open(project.link, "_blank")}
-                      >
-                        {project.link.includes("github.com") ? (
-                          <>
-                            <Github className="h-3 w-3" />
-                            View Code
-                          </>
-                        ) : (
-                          <>
-                            <ExternalLink className="h-3 w-3" />
-                            Live Demo
-                          </>
-                        )}
-                      </Button>
-                      <span className="text-[10px] text-muted-foreground">
-                        {project.company}
-                      </span>
-                    </>
-                  )}
+                    ) : (
+                      <>
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/30 text-green-500 text-[10px]"
+                        >
+                          Public
+                        </Badge>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-7 gap-1 text-xs"
+                          onClick={() => window.open(project.link, "_blank")}
+                        >
+                          {project.link.includes("github.com") ? (
+                            <>
+                              <Github className="h-3 w-3" />
+                              View Code
+                            </>
+                          ) : (
+                            <>
+                              <ExternalLink className="h-3 w-3" />
+                              Live Demo
+                            </>
+                          )}
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                  <span className="text-[10px] text-muted-foreground ml-auto">
+                    {project.company}
+                  </span>
                 </div>
               </Card>
             </motion.div>

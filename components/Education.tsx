@@ -92,7 +92,7 @@ export default function Education() {
                         {edu.college}
                       </p>
                       <div className="my-2 h-px bg-border" />
-                      <p className="text-[10px] text-muted-foreground md:text-xs">
+                      <p className="text-[10px] text-muted-foreground md:text-xs text-justify">
                         {edu.coursework}
                       </p>
                       <p className="mt-1 text-[10px] text-muted-foreground/60 md:text-xs">

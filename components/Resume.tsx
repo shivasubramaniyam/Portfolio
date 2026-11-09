@@ -54,7 +54,7 @@ export default function Resume() {
         {/* Timeline */}
         <div className="relative mx-auto max-w-2xl">
           {/* Vertical line */}
-          <div className="absolute left-5 top-0 h-full w-px bg-border md:left-6" />
+          <div className="absolute left-4 sm:left-5 top-0 h-full w-px bg-border md:left-6" />
 
           <div ref={ref} className="space-y-6">
             {experience.map((exp, index) => {
@@ -71,24 +71,24 @@ export default function Resume() {
                     duration: 0.5,
                     ease: easeInOut,
                   }}
-                  className="relative pl-14 md:pl-16"
+                  className="relative pl-11 sm:pl-14 md:pl-16"
                 >
                   {/* Icon dot */}
-                  <div className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
-                    <Icon className="h-4 w-4" />
+                  <div className="absolute left-0 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
+                    <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </div>
 
-                  <Card className="p-4 transition-all hover:shadow-lg md:p-5">
+                  <Card className="p-3.5 sm:p-4 transition-all hover:shadow-lg md:p-5">
                     <p className="mb-1 text-[10px] font-medium uppercase tracking-wider text-primary md:text-xs">
                       {exp.period}
                     </p>
                     <h3 className="text-sm font-bold md:text-base">
                       {exp.role}
                     </h3>
-                    <p className="mb-2 text-xs text-muted-foreground md:text-sm">
+                    <p className="mb-1.5 sm:mb-2 text-xs text-muted-foreground md:text-sm">
                       {exp.company}
                     </p>
-                    <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                    <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
                       {exp.description}
                     </p>
                   </Card>
