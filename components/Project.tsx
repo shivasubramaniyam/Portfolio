@@ -4,42 +4,42 @@ import { motion, easeOut } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Github, Lock } from "lucide-react";
+import { Github, Lock, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Self-Sovereign Identity (SSI) Platform",
-    problem: "Enterprises need a reusable digital credential system that works across platforms without centralizing identity data.",
-    role: "Built the template preview library for SSI platforms — designed credential templates for consistent integration.",
-    image: "/images/issuer_logo.svg",
-    tools: ["React", "Bootstrap UI", "Web3"],
-    link: "",
-    type: "private" as const,
-    company: "TrustGrid",
-  },
-  {
-    title: "Custom Canvas Editor (Fabric.js)",
-    problem: "Designers need a browser-based tool that handles real-time image/text manipulation without heavy desktop software.",
-    role: "Built a dynamic canvas editor with drag-and-drop, layer management, and export — all client-side.",
-    image: "/images/fabric.png",
-    tools: ["Fabric.js", "React", "Canvas API", "JavaScript"],
-    link: "https://github.com/shivasubramaniyam",
+    title: "PunchOS — Zero-Trust Attendance Protocol",
+    problem:
+      "Traditional attendance systems are vulnerable to proxy attendance, location spoofing, and centralized credential theft.",
+    role: "Architected a zero-trust attendance protocol combining WebAuthn Passkeys biometric authentication with dynamic anti-spoofing QR codes.",
+    image: "/images/punchos.jpeg",
+    tools: [
+      "Next.js",
+      "WebAuthn",
+      "Passkeys",
+      "Biometrics",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    link: "https://punch-os-qr-app.vercel.app",
     type: "public" as const,
     company: "Personal Project",
   },
   {
-    title: "SynQ Social — Decentralized Social Network",
-    problem: "Users want to share content without surrendering ownership to centralized platforms.",
-    role: "Built automation pipelines for content verification and platform testing.",
-    image: "/images/synq.svg",
-    tools: ["Puppeteer", "Automation"],
-    link: "",
-    type: "private" as const,
-    company: "TrustGrid",
+    title: "Weather Forecast Web App",
+    problem:
+      "Users need fast, accurate weather data with clean UI — not bloated weather portals.",
+    role: "Built a lightweight React app with geolocation, multi-day forecast, and error handling.",
+    image: "/images/weather.svg",
+    tools: ["React + Vite", "OpenWeather API", "Shadcn UI"],
+    link: "https://github.com/shivasubramaniyam/weather_app_shiva",
+    type: "public" as const,
+    company: "Personal Project",
   },
   {
     title: "E-Commerce Backend API",
-    problem: "A production-ready backend needs auth, role-based access, product management, and order flow — all with real-world security.",
+    problem:
+      "A production-ready backend needs auth, role-based access, product management, and order flow — all with real-world security.",
     role: "Designed and built the full API architecture with JWT auth, Prisma ORM, and PostgreSQL.",
     image: "/images/backend_logo.svg",
     tools: ["Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "GCP"],
@@ -48,34 +48,60 @@ const projects = [
     company: "Personal Project",
   },
   {
-    title: "Logistic Company Web Page",
-    problem: "A logistics firm needed a modern, data-driven landing page to streamline shipment visibility.",
-    role: "Built the responsive frontend with Next.js and Chakra UI.",
-    image: "/images/logistic.svg",
-    tools: ["Next.js", "Chakra UI"],
+    title: "Self-Sovereign Identity (SSI) Platform",
+    problem:
+      "Enterprises need a reusable digital credential system that works across platforms without centralizing identity data.",
+    role: "Built the template preview library for SSI platforms — designed credential templates for consistent integration.",
+    image: "/images/issuer_logo.svg",
+    tools: ["React", "Bootstrap UI", "Web3"],
     link: "",
     type: "private" as const,
     company: "TrustGrid",
   },
+  // {
+  //   title: "Custom Canvas Editor (Fabric.js)",
+  //   problem:
+  //     "Designers need a browser-based tool that handles real-time image/text manipulation without heavy desktop software.",
+  //   role: "Built a dynamic canvas editor with drag-and-drop, layer management, and export — all client-side.",
+  //   image: "/images/fabric.png",
+  //   tools: ["Fabric.js", "React", "Canvas API", "JavaScript"],
+  //   link: "https://github.com/shivasubramaniyam",
+  //   type: "public" as const,
+  //   company: "Personal Project",
+  // },
+  // {
+  //   title: "SynQ Social — Decentralized Social Network",
+  //   problem:
+  //     "Users want to share content without surrendering ownership to centralized platforms.",
+  //   role: "Built automation pipelines for content verification and platform testing.",
+  //   image: "/images/synq.svg",
+  //   tools: ["Puppeteer", "Automation"],
+  //   link: "",
+  //   type: "private" as const,
+  //   company: "TrustGrid",
+  // },
+
+  // {
+  //   title: "Logistic Company Web Page",
+  //   problem:
+  //     "A logistics firm needed a modern, data-driven landing page to streamline shipment visibility.",
+  //   role: "Built the responsive frontend with Next.js and Chakra UI.",
+  //   image: "/images/logistic.svg",
+  //   tools: ["Next.js", "Chakra UI"],
+  //   link: "",
+  //   type: "private" as const,
+  //   company: "TrustGrid",
+  // },
   {
     title: "Blind Assistance — AI Device",
-    problem: "Visually impaired individuals need real-time obstacle detection and audio feedback for safe mobility.",
+    problem:
+      "Visually impaired individuals need real-time obstacle detection and audio feedback for safe mobility.",
     role: "Built the real-time object recognition pipeline with CNN on Raspberry Pi.",
     image: "/images/raspi.svg",
     tools: ["Raspberry Pi", "CNN", "Audio Module", "Python"],
     link: "",
     type: "private" as const,
     company: "Jyothy Institute of Technology",
-  },
-  {
-    title: "Weather Forecast Web App",
-    problem: "Users need fast, accurate weather data with clean UI — not bloated weather portals.",
-    role: "Built a lightweight React app with geolocation, multi-day forecast, and error handling.",
-    image: "/images/weather.svg",
-    tools: ["React + Vite", "OpenWeather API", "Shadcn UI"],
-    link: "https://github.com/shivasubramaniyam/weather_app_shiva",
-    type: "public" as const,
-    company: "Personal Project",
   },
 ];
 
@@ -124,14 +150,18 @@ export default function Projects() {
                 </h3>
 
                 {/* Problem */}
-                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
-                  <span className="font-semibold text-foreground">Problem: </span>
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
+                  <span className="font-semibold text-foreground">
+                    Problem:{" "}
+                  </span>
                   {project.problem}
                 </p>
 
                 {/* Role */}
-                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
-                  <span className="font-semibold text-foreground">My role: </span>
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
+                  <span className="font-semibold text-foreground">
+                    My role:{" "}
+                  </span>
                   {project.role}
                 </p>
 
@@ -149,42 +179,48 @@ export default function Projects() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-auto flex items-center gap-2 pt-2">
-                  {project.type === "private" ? (
-                    <>
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                  <div className="flex items-center gap-2">
+                    {project.type === "private" ? (
                       <Badge
                         variant="outline"
-                        className="border-destructive/30 text-destructive"
+                        className="border-destructive/30 text-destructive text-[10px]"
                       >
                         <Lock className="mr-1 h-3 w-3" />
                         Private
                       </Badge>
-                      <span className="text-[10px] text-muted-foreground">
-                        {project.company}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Badge
-                        variant="outline"
-                        className="border-green-500/30 text-green-500"
-                      >
-                        Public
-                      </Badge>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="h-7 gap-1 text-xs"
-                        onClick={() => window.open(project.link, "_blank")}
-                      >
-                        <Github className="h-3 w-3" />
-                        View Code
-                      </Button>
-                      <span className="text-[10px] text-muted-foreground">
-                        {project.company}
-                      </span>
-                    </>
-                  )}
+                    ) : (
+                      <>
+                        <Badge
+                          variant="outline"
+                          className="border-green-500/30 text-green-500 text-[10px]"
+                        >
+                          Public
+                        </Badge>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-7 gap-1 text-xs"
+                          onClick={() => window.open(project.link, "_blank")}
+                        >
+                          {project.link.includes("github.com") ? (
+                            <>
+                              <Github className="h-3 w-3" />
+                              View Code
+                            </>
+                          ) : (
+                            <>
+                              <ExternalLink className="h-3 w-3" />
+                              Live Demo
+                            </>
+                          )}
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                  <span className="text-[10px] text-muted-foreground ml-auto">
+                    {project.company}
+                  </span>
                 </div>
               </Card>
             </motion.div>

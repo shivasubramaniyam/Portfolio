@@ -27,34 +27,36 @@ export default function CoverLetter() {
           transition={{ duration: 0.6, ease: easeInOut }}
           className="mx-auto max-w-2xl"
         >
-          <Card className="p-6 text-center md:p-10">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+          <Card className="p-4 sm:p-6 text-center md:p-10">
+            <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
               Open to opportunities
             </p>
-            <h3 className="mb-4 text-lg font-bold md:text-xl">
+            <h3 className="mb-3 sm:mb-4 text-base sm:text-lg font-bold md:text-xl">
               Looking for a developer who builds real things?
             </h3>
-            <p className="mb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p className="mb-6 text-xs sm:text-sm leading-relaxed text-muted-foreground md:text-base text-justify">
               I&apos;m Shiva — I build Web3 identity tools, real-time canvas
               editors, and full-stack APIs. Currently exploring the intersection
               of decentralized systems and modern frontend architecture. Always
               open to interesting problems and collaborative projects.
             </p>
 
-            <div className="mb-6 flex flex-wrap justify-center gap-3">
+            <div className="mb-6 flex flex-wrap justify-center gap-2 sm:gap-3">
               <Button
                 variant="outline"
-                className="gap-2"
+                size="sm"
+                className="gap-1.5 sm:gap-2 text-xs sm:text-sm"
                 onClick={() =>
                   window.open("https://github.com/shivasubramaniyam", "_blank")
                 }
               >
-                <Github className="h-4 w-4" />
+                <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 GitHub
               </Button>
               <Button
                 variant="outline"
-                className="gap-2"
+                size="sm"
+                className="gap-1.5 sm:gap-2 text-xs sm:text-sm"
                 onClick={() =>
                   window.open(
                     "https://www.linkedin.com/in/shiva-subramaniyam-s",
@@ -62,18 +64,19 @@ export default function CoverLetter() {
                   )
                 }
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 LinkedIn
               </Button>
               <Button
                 variant="outline"
-                className="gap-2"
+                size="sm"
+                className="gap-1.5 sm:gap-2 text-xs sm:text-sm"
                 onClick={() =>
                   (window.location.href =
                     "mailto:shivasubramaniyam54@gmail.com")
                 }
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 Email
               </Button>
             </div>
@@ -82,7 +85,8 @@ export default function CoverLetter() {
 
             <Button
               variant="default"
-              className="gap-2"
+              size="sm"
+              className="w-full sm:w-auto gap-2 text-xs sm:text-sm"
               onClick={() => window.open("/shiva_coversheet_new.pdf", "_blank")}
             >
               <FileText className="h-4 w-4" />

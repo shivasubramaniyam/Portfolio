@@ -135,23 +135,25 @@ a {
 
 /* Info card hover interactions */
 .info-card {
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
   transform-origin: center;
   position: relative;
   height: auto;
 }
 
-.info-card:not(:hover) {
-  opacity: 1;
-  transform: scale(0.97);
-}
+@media (min-width: 768px) {
+  .info-card:not(:hover) {
+    opacity: 0.96;
+    transform: scale(0.98);
+  }
 
-.info-card:hover {
-  transform: scale(1.05);
-  opacity: 1;
-  z-index: 5;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  .info-card:hover {
+    transform: scale(1.03);
+    opacity: 1;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
 }
 
 .info-card .details {
@@ -161,13 +163,28 @@ a {
   transition: all 0.3s ease;
 }
 
-.info-card:hover .details {
-  max-height: 60px;
-  opacity: 1;
-  margin-top: 8px;
+/* Always show details on mobile/touch screens or when screen width is small */
+@media (max-width: 767px), (hover: none) {
+  .info-card .details {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 6px;
+  }
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  .info-card:hover .details {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 8px;
+  }
 }
 
 /* Scrollbar styling */
+.font-unbounded {
+  font-family: var(--font-unbounded), sans-serif;
+}
+
 .scrollx {
   overflow: auto;
   white-space: nowrap;

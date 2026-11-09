@@ -6,17 +6,32 @@ import { motion } from "motion/react";
 const skillCategories = [
   {
     category: "Core — Daily Use",
-    items: ["React", "Next.js", "TypeScript", "Node.js", "Fabric.js"],
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Fabric.js",
+      "Rest API ",
+    ],
     accent: "bg-primary/10 text-primary border-primary/20",
   },
   {
     category: "Built With",
-    items: ["MongoDB", "PostgreSQL", "Prisma", "Chakra UI", "Shadcn UI", "Tailwind CSS"],
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "Keyclock (Auth)",
+      "Prisma",
+      "Bootstrap UI",
+      "Shadcn UI",
+      "Tailwind CSS",
+    ],
     accent: "bg-accent/10 text-accent border-accent/20",
   },
   {
     category: "Tools & Workflow",
-    items: ["Git", "VS Code", "Figma", "Postman", "Puppeteer", "Vercel"],
+    items: ["Git", "VS Code", "Figma", "Postman", "Vercel", "GCP"],
     accent: "bg-secondary text-secondary-foreground border-border",
   },
   {

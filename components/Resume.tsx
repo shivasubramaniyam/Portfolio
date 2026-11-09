@@ -2,21 +2,46 @@
 
 import { motion, easeInOut } from "motion/react";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Code, Server, Globe } from "lucide-react";
+import { Download, Code, Server, Globe, Mic } from "lucide-react";
 
-const experience = [
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+  icon: typeof Code;
+  images?: { src: string; alt: string }[];
+}
+
+const experience: ExperienceItem[] = [
   {
-    period: "2024 — Present",
-    role: "Frontend Developer",
+    period: "2025 — Present",
+    role: "Associate Software Engineer",
     company: "TrustGrid",
     description:
-      "Building Web3 identity tools — SSI template platforms, social networks, and logistics dashboards using React, Next.js, and Fabric.js.",
+      "Software Engineer at TrustGrid building Web3 identity products: SSI (Self-Sovereign Identity) platforms on Hyperledger Indy, Digital Credentials, and PaaS dashboards, using React, Next.js, Fabric.js, and Keycloak for secure authentication and role-based access. I maintain 4 production dashboards and work with architects, backend engineers, and designers to deliver scalable, user-centric solutions.",
     icon: Code,
   },
   {
-    period: "2023 — 2024",
+    period: "NOVEMBER 2025",
+    role: "Product Promotion",
+    company: "Bengaluru Tech Summit (BTS)",
+    description:
+      "Represented TrustGrid at Bengaluru Tech Summit, showcasing and promoting its product (SSI, SynQ Social, dTAK) to technology professionals, industry leaders, founders, and delegates. Engaged with attendees at the TrustGrid booth, explaining product capabilities, demonstrating solutions, and encouraging discussions around technology adoption and collaboration.",
+    icon: Mic,
+    images: [
+      { src: "/images/bts.jpeg", alt: "Bengaluru Tech Summit Hosting" },
+      { src: "/images/booth.jpeg", alt: "BTS Event Presentation" },
+      { src: "/images/explain.jpeg", alt: "BTS Event Presentation" },
+
+      { src: "/images/team.jpeg", alt: "BTS Event Presentation" },
+    ],
+  },
+  {
+    period: "2023 — 2025",
     role: "Full Stack Developer (Projects)",
     company: "Personal & Academic",
     description:
@@ -47,14 +72,14 @@ export default function Resume() {
         </h2>
 
         <p className="mx-auto mb-6 max-w-xl text-center text-sm text-muted-foreground md:mb-8 md:text-base">
-          Here&apos;s a timeline of my experience and key contributions. Download the
-          full resume for complete details.
+          Here&apos;s a timeline of my experience and key contributions.
+          Download the full resume for complete details.
         </p>
 
         {/* Timeline */}
         <div className="relative mx-auto max-w-2xl">
           {/* Vertical line */}
-          <div className="absolute left-5 top-0 h-full w-px bg-border md:left-6" />
+          <div className="absolute left-4 sm:left-5 top-0 h-full w-px bg-border md:left-6" />
 
           <div ref={ref} className="space-y-6">
             {experience.map((exp, index) => {
@@ -63,26 +88,55 @@ export default function Resume() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ delay: index * 0.2, duration: 0.5, ease: easeInOut }}
-                  className="relative pl-14 md:pl-16"
+                  animate={
+                    inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
+                  transition={{
+                    delay: index * 0.2,
+                    duration: 0.5,
+                    ease: easeInOut,
+                  }}
+                  className="relative pl-11 sm:pl-14 md:pl-16"
                 >
                   {/* Icon dot */}
-                  <div className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
-                    <Icon className="h-4 w-4" />
+                  <div className="absolute left-0 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
+                    <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </div>
 
-                  <Card className="p-4 transition-all hover:shadow-lg md:p-5">
+                  <Card className="p-3.5 sm:p-4 transition-all hover:shadow-lg md:p-5">
                     <p className="mb-1 text-[10px] font-medium uppercase tracking-wider text-primary md:text-xs">
                       {exp.period}
                     </p>
-                    <h3 className="text-sm font-bold md:text-base">{exp.role}</h3>
-                    <p className="mb-2 text-xs text-muted-foreground md:text-sm">
+                    <h3 className="text-sm font-bold md:text-base">
+                      {exp.role}
+                    </h3>
+                    <p className="mb-1.5 sm:mb-2 text-xs text-muted-foreground md:text-sm">
                       {exp.company}
                     </p>
-                    <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                    <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
                       {exp.description}
                     </p>
+
+                    {/* Event Photo Gallery if present */}
+                    {exp.images && exp.images.length > 0 && (
+                      <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-3 pt-2">
+                        {exp.images.map((img, imgIdx) => (
+                          <div
+                            key={imgIdx}
+                            className="relative h-28 sm:h-36 w-full overflow-hidden rounded-lg bg-muted border border-border/60 group/img"
+                          >
+                            <Image
+                              src={img.src}
+                              alt={img.alt}
+                              fill
+                              loading="lazy"
+                              sizes="(max-width: 640px) 50vw, 25vw"
+                              className="object-cover transition-transform duration-300 group-hover/img:scale-105"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </Card>
                 </motion.div>
               );

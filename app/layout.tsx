@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Unbounded } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -7,6 +7,12 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   weight: ["400", "500", "600", "700"],
+});
+
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  variable: "--font-unbounded",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
@@ -61,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} antialiased`}>
+      <body className={`${manrope.variable} ${unbounded.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
