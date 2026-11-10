@@ -15,7 +15,7 @@ const unbounded = Unbounded({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
+const siteUrl = "https://shivasubramaniyams.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Shiva Subramaniyam S" }],
   creator: "Shiva Subramaniyam S",
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   robots: {
     index: true,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Shiva Subramaniyam | Full Stack Developer",
     description:
       "Web3 identity tools, real-time canvas editors, and production APIs — built with React, Next.js, Node.js, and Fabric.js.",
-    url: `${siteUrl}/`,
+    url: siteUrl,
     siteName: "Shiva Portfolio",
     locale: "en_US",
     type: "website",
@@ -72,7 +72,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>

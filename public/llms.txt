@@ -25,8 +25,8 @@ Decentralized social network platform for privacy-first content sharing. Built a
 
 ## Important Pages
 
-- Portfolio: https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app/
-- Weather App: https://weatherappshiva-8mwcjawfx-shivasubramaniyams-projects.vercel.app/
+- Portfolio: https://shivasubramaniyams.vercel.app/
+- Weather App: https://weatherappshiva.vercel.app/
 - E-Commerce API: https://github.com/shivasubramaniyam/E-commerce
 
 ## Links
