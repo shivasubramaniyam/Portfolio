@@ -29,16 +29,13 @@ export default function CoverLetter() {
         >
           <Card className="p-4 sm:p-6 text-center md:p-10">
             <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
-              Open to opportunities
+              Based in Bengaluru, India
             </p>
             <h3 className="mb-3 sm:mb-4 text-base sm:text-lg font-bold md:text-xl">
-              Looking for a developer who builds real things?
+              Open to Full-Stack & Frontend Engineering Roles
             </h3>
             <p className="mb-6 text-xs sm:text-sm leading-relaxed text-muted-foreground md:text-base text-justify">
-              I&apos;m Shiva — I build Web3 identity tools, real-time canvas
-              editors, and full-stack APIs. Currently exploring the intersection
-              of decentralized systems and modern frontend architecture. Always
-              open to interesting problems and collaborative projects.
+              Whether you are building Web3 decentralized identity platforms, complex canvas interfaces, or resilient full-stack cloud applications, I bring hands-on experience shipping production systems. Let&apos;s build impactful software together.
             </p>
 
             <div className="mb-6 flex flex-wrap justify-center gap-2 sm:gap-3">

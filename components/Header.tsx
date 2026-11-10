@@ -54,9 +54,11 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <span className="whitespace-nowrap text-xs sm:text-sm text-muted-foreground">
-              Visitors: {visitorCount}
-            </span>
+            {visitorCount > 25 && (
+              <span className="whitespace-nowrap text-xs sm:text-sm text-muted-foreground">
+                Visitors: {visitorCount}
+              </span>
+            )}
           </div>
         </nav>
         <ThemeToggle />

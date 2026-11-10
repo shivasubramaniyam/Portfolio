@@ -10,13 +10,13 @@ import Playground from "@/components/Playground";
 import { BackToTopButton } from "@/components/BackToTop";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
-const siteUrl = "https://portfolio-nextjs-shiva-subramaniyam-s.vercel.app";
+const siteUrl = "https://shivasubramaniyams.vercel.app";
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Shiva Subramaniyam S",
-  url: `${siteUrl}/`,
+  url: siteUrl,
   image: `${siteUrl}/images/IMG_72611.JPG`,
   sameAs: [
     "https://github.com/shivasubramaniyam",
@@ -76,7 +76,10 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="flex flex-col items-center justify-center gap-2 py-8 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Shiva Subramaniyam. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Shiva Subramaniyam. All rights
+            reserved.
+          </p>
           <p>
             Built with{" "}
             <a

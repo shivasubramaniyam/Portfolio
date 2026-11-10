@@ -123,6 +123,21 @@ a {
   text-decoration: none;
 }
 
+/* Smooth View Transitions API for Dark / Light Theme switching */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -135,7 +150,10 @@ a {
 
 /* Info card hover interactions */
 .info-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
   transform-origin: center;
   position: relative;
   height: auto;

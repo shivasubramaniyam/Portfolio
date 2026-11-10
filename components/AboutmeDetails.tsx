@@ -29,26 +29,20 @@ export default function AboutmeDetails() {
             <span className="font-unbounded">Shiva Subramaniyam S</span> — Full Stack Developer
           </h1>
           <p className="mb-4 text-xs sm:text-sm leading-relaxed text-muted-foreground md:text-base text-justify">
-            I build <b className="text-foreground">Web3 identity tools</b> and{" "}
-            <b className="text-foreground">real-time systems</b> that users
-            actually touch. From{" "}
-            <b className="text-foreground">self-sovereign identity platforms</b>{" "}
-            to <b className="text-foreground">custom canvas editors</b>, I focus
-            on solving real problems with React, Next.js, and decentralized web
-            technologies.
+            Full-stack engineer based in Bengaluru specializing in <b className="text-foreground">distributed identity (SSI)</b>, <b className="text-foreground">zero-trust authorization</b>, and interactive <b className="text-foreground">canvas rendering engines</b>. At TrustGrid, I develop production enterprise dashboards interfacing with Hyperledger Indy and Keycloak. Outside work, I architect security-first experiments like PunchOS, bridging biometric WebAuthn Passkeys with real-world authentication workflows.
           </p>
           <div className="flex flex-wrap justify-center gap-2 md:justify-start">
             <Badge variant="secondary" className="rounded-full px-3 py-1">
-              Web3 & SSI
+              Web3 & Hyperledger Indy
             </Badge>
             <Badge variant="secondary" className="rounded-full px-3 py-1">
               Full Stack Developer
             </Badge>
             <Badge variant="secondary" className="rounded-full px-3 py-1">
-              Canvas & Real-time Systems
+              Canvas & Fabric.js
             </Badge>
             <Badge variant="secondary" className="rounded-full px-3 py-1">
-              Keycloak (Auth)
+              Keycloak (RBAC)
             </Badge>
           </div>
         </div>
@@ -81,7 +75,7 @@ export default function AboutmeDetails() {
                   shivasubramaniyam54@gmail.com
                 </a>
                 <br />
-                <span>ph: +91 797 5271 494</span>
+                <span className="text-foreground/80 font-medium">Bengaluru, India • Open to Roles</span>
               </p>
             </div>
           </div>

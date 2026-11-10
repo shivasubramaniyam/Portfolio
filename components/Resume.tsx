@@ -11,7 +11,8 @@ interface ExperienceItem {
   period: string;
   role: string;
   company: string;
-  description: string;
+  description?: string;
+  bullets?: string[];
   icon: typeof Code;
   images?: { src: string; alt: string }[];
 }
@@ -21,8 +22,12 @@ const experience: ExperienceItem[] = [
     period: "2025 — Present",
     role: "Associate Software Engineer",
     company: "TrustGrid",
-    description:
-      "Software Engineer at TrustGrid building Web3 identity products: SSI (Self-Sovereign Identity) platforms on Hyperledger Indy, Digital Credentials, and PaaS dashboards, using React, Next.js, Fabric.js, and Keycloak for secure authentication and role-based access. I maintain 4 production dashboards and work with architects, backend engineers, and designers to deliver scalable, user-centric solutions.",
+    bullets: [
+      "Engineered and maintained 4 enterprise-grade production dashboards across Self-Sovereign Identity (SSI) and PaaS products using React, Next.js, and Fabric.js.",
+      "Integrated Keycloak for zero-trust role-based access control (RBAC), secure token exchanges, and centralized user authorization.",
+      "Built interactive template preview engines for Hyperledger Indy decentralized digital credentials, improving credential issuance fidelity for partner teams.",
+      "Partnered with systems architects, backend developers, and designers to streamline state management and optimize client-side rendering performance.",
+    ],
     icon: Code,
   },
   {
@@ -30,13 +35,12 @@ const experience: ExperienceItem[] = [
     role: "Product Promotion",
     company: "Bengaluru Tech Summit (BTS)",
     description:
-      "Represented TrustGrid at Bengaluru Tech Summit, showcasing and promoting its product (SSI, SynQ Social, dTAK) to technology professionals, industry leaders, founders, and delegates. Engaged with attendees at the TrustGrid booth, explaining product capabilities, demonstrating solutions, and encouraging discussions around technology adoption and collaboration.",
+      "Represented TrustGrid at Bengaluru Tech Summit, showcasing and promoting its products (SSI, SynQ Social, dTAK) to technology professionals, industry leaders, founders, and delegates. Engaged with attendees at the TrustGrid booth, explaining product capabilities, demonstrating solutions, and encouraging discussions around technology adoption and collaboration.",
     icon: Mic,
     images: [
       { src: "/images/bts.jpeg", alt: "Bengaluru Tech Summit Hosting" },
       { src: "/images/booth.jpeg", alt: "BTS Event Presentation" },
       { src: "/images/explain.jpeg", alt: "BTS Event Presentation" },
-
       { src: "/images/team.jpeg", alt: "BTS Event Presentation" },
     ],
   },
@@ -113,9 +117,23 @@ export default function Resume() {
                     <p className="mb-1.5 sm:mb-2 text-xs text-muted-foreground md:text-sm">
                       {exp.company}
                     </p>
-                    <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
-                      {exp.description}
-                    </p>
+                    {exp.bullets ? (
+                      <ul className="space-y-1.5 pt-0.5">
+                        {exp.bullets.map((bullet, bIdx) => (
+                          <li
+                            key={bIdx}
+                            className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground md:text-sm text-justify"
+                          >
+                            <span className="text-primary mt-1 font-bold text-xs shrink-0">•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-xs leading-relaxed text-muted-foreground md:text-sm text-justify">
+                        {exp.description}
+                      </p>
+                    )}
 
                     {/* Event Photo Gallery if present */}
                     {exp.images && exp.images.length > 0 && (
